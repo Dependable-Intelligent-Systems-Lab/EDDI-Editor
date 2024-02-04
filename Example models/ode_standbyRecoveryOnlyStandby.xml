@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SystemElements>
+    <System Id="34" name="Default" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+      <keyValueMaps />
+      <signals />
+      <ports />
+      <subSystems>
+        <System Id="35" name="Standby" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="36" name="SensorIn" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="37" name="Monitor" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="38" name="DataOut" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="40" name="Omission-Default::Standby.DataOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>(calculationFailure OR Omission-SensorIn) AND Omission-Monitor</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="39" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="40" name="Omission-Default::Standby.DataOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>(calculationFailure OR Omission-SensorIn) AND Omission-Monitor</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+                <Failure Id="41" name="Default::Standby.calculationFailure" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="42" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="43" name="Failure Rate" value="0.0002">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="44" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+      </subSystems>
+      <failureModels />
+      <eventMonitors />
+    </System>
+  </SystemElements>
+  <Hazards />
+</Model>

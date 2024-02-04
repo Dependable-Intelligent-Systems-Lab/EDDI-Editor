@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFF22605-4C8B-4752-BD65-3DA669C2B5FF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ODEConverter</RootNamespace>
+    <AssemblyName>ODEConverter</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Extended.Wpf.Toolkit.PropertyGrid.Collection, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.PropertyGrid.Collection.1.0.1\lib\net472\Extended.Wpf.Toolkit.PropertyGrid.Collection.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AddEvent.xaml.cs">
+      <DependentUpon>AddEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddAction.xaml.cs">
+      <DependentUpon>AddAction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportModel.xaml.cs">
+      <DependentUpon>ImportModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportSystem.xaml.cs">
+      <DependentUpon>ImportSystem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Viewmodels\dym\ModelVM.cs" />
+    <Compile Include="Viewmodels\dym\StateMachineVM.cs" />
+    <Compile Include="Viewmodels\dym\StateVM.cs" />
+    <Compile Include="Viewmodels\dym\TransitionVM.cs" />
+    <Compile Include="Viewmodels\hip\FMEAComponentVM.cs" />
+    <Compile Include="Viewmodels\hip\AnalysisResultsVM.cs" />
+    <Compile Include="Viewmodels\hip\BasicEventVM.cs" />
+    <Compile Include="Viewmodels\hip\CauseVM.cs" />
+    <Compile Include="Viewmodels\hip\ComponentVM.cs" />
+    <Compile Include="Viewmodels\hip\CutSetSummaryVM.cs" />
+    <Compile Include="Viewmodels\hip\CutSetVM.cs" />
+    <Compile Include="Viewmodels\hip\FailureDataVM.cs" />
+    <Compile Include="Viewmodels\hip\FaultTreeNodeVM.cs" />
+    <Compile Include="Viewmodels\hip\FaultTreeVM.cs" />
+    <Compile Include="Viewmodels\hip\FMEAVM.cs" />
+    <Compile Include="Viewmodels\hip\HazardVM.cs" />
+    <Compile Include="Viewmodels\hip\ImplementationVM.cs" />
+    <Compile Include="Viewmodels\hip\LineVM.cs" />
+    <Compile Include="Viewmodels\hip\ModelVM.cs" />
+    <Compile Include="Viewmodels\hip\OutputDeviationVM.cs" />
+    <Compile Include="Viewmodels\hip\PerspectiveVM.cs" />
+    <Compile Include="Viewmodels\hip\PortVM.cs" />
+    <Compile Include="Viewmodels\hip\PotentialCCFVM.cs" />
+    <Compile Include="Viewmodels\hip\SystemVM.cs" />
+    <Compile Include="Viewmodels\hip\UnavailabilityFormulaVM.cs" />
+    <Compile Include="Viewmodels\ExpandableList.cs" />
+    <Compile Include="Viewmodels\ObservableList.cs" />
+    <Compile Include="Viewmodels\ode\ExternalEventVM.cs" />
+    <Compile Include="Viewmodels\ode\ConditionEventVM.cs" />
+    <Compile Include="Viewmodels\ode\FunctionActionVM.cs" />
+    <Compile Include="Viewmodels\ode\WarningActionVM.cs" />
+    <Compile Include="Viewmodels\ode\MessageActionVM.cs" />
+    <Compile Include="Viewmodels\ode\AssuranceLevelVM.cs" />
+    <Compile Include="Viewmodels\ode\GateVM.cs" />
+    <Compile Include="Viewmodels\ode\EventMonitorVM.cs" />
+    <Compile Include="Viewmodels\ode\EventVM.cs" />
+    <Compile Include="Viewmodels\ode\FailureModelVM.cs" />
+    <Compile Include="Viewmodels\ode\CauseVM.cs" />
+    <Compile Include="Viewmodels\ode\FaultTreeVM.cs" />
+    <Compile Include="Viewmodels\ode\ProbDistParamVM.cs" />
+    <Compile Include="Viewmodels\ode\ProbDistVM.cs" />
+    <Compile Include="Viewmodels\ode\ActionVM.cs" />
+    <Compile Include="Viewmodels\ode\TransitionVM.cs" />
+    <Compile Include="Viewmodels\ode\StateVM.cs" />
+    <Compile Include="Viewmodels\ode\StateMachineVM.cs" />
+    <Compile Include="Viewmodels\ode\HazardVM.cs" />
+    <Compile Include="Viewmodels\ode\FailureVM.cs" />
+    <Compile Include="Viewmodels\ode\ModelVM.cs" />
+    <Compile Include="Viewmodels\ode\PortVM.cs" />
+    <Compile Include="Viewmodels\ode\SignalVM.cs" />
+    <Compile Include="Viewmodels\ode\SystemVM.cs" />
+    <Page Include="AddEvent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddAction.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImportSystem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ODELib\ODELib.csproj">
+      <Project>{a72a7882-1ae7-48ca-84b1-1946ad626a26}</Project>
+      <Name>ODELib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

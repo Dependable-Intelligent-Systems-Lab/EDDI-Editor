@@ -1,0 +1,153 @@
+{
+  "format": "StateMachine",
+  "version": 1,
+  "data": {
+    "StateMachine": [
+      {
+        "$id": "1",
+        "$type": "Ultra.StateMachines.StateMachine",
+        "Description": null,
+        "Name": "PrimaryStandby",
+        "States": [
+          {
+            "$ref": "2"
+          },
+          {
+            "$ref": "4"
+          },
+          {
+            "$ref": "6"
+          }
+        ]
+      }
+    ],
+    "State": [
+      {
+        "$id": "2",
+        "$type": "Ultra.StateMachines.State",
+        "Description": null,
+        "FailState": false,
+        "Height": 120.0,
+        "IncomingTransitions": {},
+        "Name": "Using Primary",
+        "OutgoingTransitions": {
+          "$4": {
+            "$ref": "3"
+          },
+          "$6": {
+            "$ref": "7"
+          }
+        },
+        "StateMachine": {
+          "$ref": "1"
+        },
+        "StartState": true,
+        "Width": 200.0,
+        "X": 500.0,
+        "Y": 300.0
+      },
+      {
+        "$id": "4",
+        "$type": "Ultra.StateMachines.State",
+        "Description": null,
+        "FailState": false,
+        "Height": 120.0,
+        "IncomingTransitions": {
+          "$2": {
+            "$ref": "3"
+          }
+        },
+        "Name": "Using Standby",
+        "OutgoingTransitions": {
+          "$6": {
+            "$ref": "5"
+          }
+        },
+        "StateMachine": {
+          "$ref": "1"
+        },
+        "StartState": false,
+        "Width": 200.0,
+        "X": 318.0,
+        "Y": 545.99734809742449
+      },
+      {
+        "$id": "6",
+        "$type": "Ultra.StateMachines.State",
+        "Description": null,
+        "FailState": true,
+        "Height": 120.0,
+        "IncomingTransitions": {
+          "$4": {
+            "$ref": "5"
+          },
+          "$2": {
+            "$ref": "7"
+          }
+        },
+        "Name": "Failed",
+        "OutgoingTransitions": {},
+        "StateMachine": {
+          "$ref": "1"
+        },
+        "StartState": false,
+        "Width": 200.0,
+        "X": 728.0,
+        "Y": 543.99734809742449
+      }
+    ],
+    "Transition": [
+      {
+        "$id": "3",
+        "$type": "Ultra.StateMachines.Transition",
+        "Description": null,
+        "Joints": [],
+        "Name": "Primary Fails",
+        "Trigger": null,
+        "DestinationState": {
+          "$ref": "4"
+        },
+        "ParentStateMachine": {
+          "$ref": "1"
+        },
+        "SourceState": {
+          "$ref": "2"
+        }
+      },
+      {
+        "$id": "5",
+        "$type": "Ultra.StateMachines.Transition",
+        "Description": null,
+        "Joints": [],
+        "Name": "Standby Fails",
+        "Trigger": null,
+        "DestinationState": {
+          "$ref": "6"
+        },
+        "ParentStateMachine": {
+          "$ref": "1"
+        },
+        "SourceState": {
+          "$ref": "4"
+        }
+      },
+      {
+        "$id": "7",
+        "$type": "Ultra.StateMachines.Transition",
+        "Description": null,
+        "Joints": [],
+        "Name": "Input Failure",
+        "Trigger": null,
+        "DestinationState": {
+          "$ref": "6"
+        },
+        "ParentStateMachine": {
+          "$ref": "1"
+        },
+        "SourceState": {
+          "$ref": "2"
+        }
+      }
+    ]
+  }
+}

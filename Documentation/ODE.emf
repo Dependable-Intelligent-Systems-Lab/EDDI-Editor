@@ -1,0 +1,1357 @@
+/*
+This file has been generated automatically.
+Please do not make any changes in this file manually, but apply changes in the package .emf files respectively.
+If you want to create a new meta model package, please create a new .emf file within the metamodel/model/ode/ directory and add its name to the list within metamodel/model/ode/OdeResourceLoader.java file.
+*/
+
+@namespace(uri="http://www.deis-project.eu/ode/mergedODE", prefix="mergedODE")
+package top;
+
+@namespace(uri="http://omg.sacm/2.0/argumentation", prefix="argumentation_")
+package argumentation_{
+
+
+
+	enum AssertionDeclaration {
+	  asserted = 1;
+	  needsSupport = 2;
+	  assumed = 3;
+	  axiomatic = 4;
+	  defeated = 5;
+	  asCited = 6;
+	}
+	
+	abstract class ArgumentationElement extends base.ArtifactElement {
+	  attr boolean[1] uninstantiated = false;
+	}
+	
+	class ArgumentGroup extends ArgumentationElement {
+	  ref ArgumentationElement[*] argumentationElement;
+	}
+	
+	class ArgumentPackage extends ArgumentationElement {
+	  val ArgumentationElement[*] argumentationElement;
+	}
+	
+	class ArgumentPackageInterface extends ArgumentPackage {
+	  ref ArgumentPackage[1] implements;
+	}
+	
+	class ArgumentPackageBinding extends ArgumentPackage {
+	  ref ArgumentPackage[2..*] participantPackage;
+	}
+	
+	abstract class ArgumentAsset extends ArgumentationElement {
+	  val base.MultiLangString content;
+	}
+	
+	abstract class Assertion extends ArgumentAsset {
+	  attr AssertionDeclaration[1] assertionDeclaration = "asserted";
+	  ref Claim[*] metaClaim;
+	}
+	
+	class ArgumentReasoning extends ArgumentAsset {
+	  ref ArgumentPackage structure;
+	}
+	
+	class Claim extends Assertion {
+	}
+	
+	abstract class AssertedRelationship extends Assertion {
+	  attr boolean[1] isCounter = false;
+	  ref ArgumentAsset[+] source;
+	  ref ArgumentAsset[+] target;
+	  ref ArgumentReasoning reasoning;
+	  attr int requies = 0;
+	}
+	
+	class ArtifactReference extends ArgumentAsset {
+	  ref base.ArtifactElement[*] referencedArtifactElement;
+	}
+	
+	class AssertedArtifactSupport extends AssertedRelationship {
+	}
+	
+	class AssertedInference extends AssertedRelationship {
+	}
+	
+	class AssertedEvidence extends AssertedRelationship {
+	}
+	
+	class AssertedContext extends AssertedRelationship {
+	}
+	
+	class AssertedArtifactContext extends AssertedRelationship {
+	}
+	
+}
+
+@namespace(uri="http://omg.sacm/2.0/artifact", prefix="artifact_")
+package artifact_{
+
+
+
+  class ArtifactGroup extends base.ArtifactElement {
+    ref base.ArtifactElement[*] artifactElement;
+  }
+
+  class ArtifactPackage extends base.ArtifactElement {
+    val base.ArtifactElement[*] artifactElement;
+  }
+
+  class ArtifactPackageBinding extends ArtifactPackage {
+    ref ArtifactPackage[2..*] participantPackage;
+  }
+
+  class ArtifactPackageInterface extends ArtifactPackage {
+    ref ArtifactPackage[1] implements;
+  }
+
+  abstract class ArtifactAsset extends base.ArtifactElement {
+    ref Property[*] artifactProperty;
+  }
+
+  class Property extends ArtifactAsset {
+  }
+
+  class Technique extends ArtifactAsset {
+  }
+
+  class Participant extends ArtifactAsset {
+  }
+
+  class Activity extends ArtifactAsset {
+    attr EDate startTime;
+    attr EDate endTime;
+  }
+
+  class Event extends ArtifactAsset {
+    attr EDate occurence;
+  }
+
+  class Resource extends ArtifactAsset {
+  }
+
+  class Artifact extends ArtifactAsset {
+    attr String version;
+    attr EDate date;
+  }
+
+  class ArtifactAssetRelationship extends ArtifactAsset {
+    ref ArtifactAsset[+] source;
+    ref ArtifactAsset[+] target;
+  }
+}
+
+@namespace(uri="http://omg.sacm/2.0/assurancecase", prefix="assuranceCase_")
+package assuranceCase_{
+
+
+
+  class AssuranceCasePackage extends base.ArtifactElement {
+    val AssuranceCasePackage[*] assuranceCasePackage;
+    ref AssuranceCasePackageInterface[*] ~interface;
+    val artifact_.ArtifactPackage[*] artifactPackage;
+    val argumentation_.ArgumentPackage[*] argumentPackage;
+    val terminology_.TerminologyPackage[*] terminologyPackage;
+  }
+
+  class AssuranceCasePackageBinding extends AssuranceCasePackage {
+    ref AssuranceCasePackage[2..*] participantPackage;
+  }
+
+  class AssuranceCasePackageInterface extends AssuranceCasePackage {
+    ref AssuranceCasePackage[1] implements;
+  }
+}
+
+@namespace(uri="http://omg.sacm/2.0/base", prefix="base_")
+package base{
+
+  abstract class Element {
+  }
+
+  class LangString extends Element {
+    attr String lang;
+    attr String content;
+  }
+
+  class ExpressionLangString extends LangString {
+    val ArtifactElement[1] expression;
+  }
+
+  class MultiLangString extends Element {
+    val LangString[+] value;
+  }
+
+  abstract class SACMElement extends Element {
+    attr String gid;
+    attr boolean isCitation = false;
+    attr boolean isAbstract = false;
+    ref SACMElement citedElement;
+    ref SACMElement abstractForm;
+  }
+
+  abstract class UtilityElement extends SACMElement {
+    val MultiLangString content;
+  }
+
+  class Description extends UtilityElement {
+  }
+
+  class ImplementationConstraint extends UtilityElement {
+  }
+
+  class Note extends UtilityElement {
+  }
+
+  class TaggedValue extends UtilityElement {
+    val MultiLangString[1] key;
+  }
+
+  abstract class ModelElement extends SACMElement {
+    val LangString name;
+    val Description description;
+    val ImplementationConstraint[*] implementationConstraint;
+    val Note[*] note;
+    val TaggedValue[*] taggedValue;
+  }
+
+  abstract class ArtifactElement extends ModelElement {
+  }
+}
+
+@namespace(uri="http://omg.sacm/2.0/terminology", prefix="terminology_")
+package terminology_{
+
+
+  abstract class TerminologyElement extends base.ArtifactElement {
+  }
+
+  class TerminologyGroup extends TerminologyElement {
+    ref TerminologyElement[*] terminologyElement;
+  }
+
+  class TerminologyPackage extends TerminologyElement {
+    val TerminologyElement[*] terminologyElement;
+  }
+
+  class TerminologyPackageBinding extends TerminologyPackage {
+    ref TerminologyPackage[2..*] participantPackage;
+  }
+
+  class TerminologyPackageInterface extends TerminologyPackage {
+    ref TerminologyPackage[1] implements;
+  }
+
+  abstract class TerminologyAsset extends TerminologyElement {
+  }
+
+  class Category extends TerminologyAsset {
+  	ref Category category;
+  }
+
+  abstract class ExpressionElement extends TerminologyAsset {
+    attr String[1] value;
+    ref Category[*] category;
+  }
+
+  class Expression extends ExpressionElement {
+    ref ExpressionElement[*] element;
+  }
+
+  class Term extends ExpressionElement {
+    attr String externalReference;
+    ref base.ModelElement origin;
+  }
+}
+
+@namespace(uri="http://www.deis-project.eu/ode/architecture", prefix="architecture")
+package architecture{
+
+
+
+  class DesignPackage extends integration.ODEProductPackage {
+	val System[*] systems;
+	val Function[*] functions;
+	val ServiceType[*] serviceTypes;
+  }
+
+  class System extends odeBase.BaseElement {
+	attr double overallLifetime;
+	attr odeBase.TimeUnit overallLifetimeTimeUnit = "Hour";
+    val SystemBoundary[1..*] systemBoundaries;
+    val Context[*] contexts;
+    val Configuration[*] configurations;
+    val ServiceConfiguration [*] serviceConfigurations;
+    ref ServiceConfiguration [0..1] activeServiceConfiguration;
+    val Signal[*] signals;
+    val Port[*] ports;
+    ref System[*] subSystems;
+    ref Function[*] realisedFunctions;
+    ref dependability_.Asset[0..1] asAsset;
+    ref dependability_.DependabilityRequirement[*] dependabilityRequirements;
+    ref dependability_.AssuranceLevel[0..1] assuranceLevel;
+    ref dependability_.Standard[*] appliedStandards;
+	ref failureLogic_.FailureModel[*] failureModels;
+	ref event_.EventMonitor[*] eventMonitors;
+  }
+
+  class Function extends odeBase.BaseElement {
+    val Signal[*] signals;
+    val Port[*] ports;
+    val PerfChars[0..1] perfChars; 
+    ref Function[*] subFunctions;
+    ref dependability_.Asset[0..1] asAsset;
+    ref dependability_.DependabilityRequirement[*] dependabilityRequirements;
+    ref dependability_.AssuranceLevel[0..1] assuranceLevel;
+	ref failureLogic_.FailureModel[*] failureModels;
+    ref dependability_.Malfunction[*] malfunctions;
+  }
+  
+  class SafetyFunction extends Function {
+    attr String object;
+    attr String behavior;
+    attr String safeState;
+  }
+  
+  class Port extends odeBase.BaseElement {
+    attr String flowType;
+    attr PortDirection direction;
+    ref failureLogic_.Failure[*] interfaceFailures;
+    ref Port[*] refinedPorts;
+    ref dependability_.AssuranceLevel[0..1] assuranceLevel;
+    ref dependability_.DependabilityRequirement[*] dependabilityRequirements;
+  }
+
+  class PerfChars extends odeBase.BaseElement {
+    attr double responseTime;
+  }
+
+  class SystemBoundary extends odeBase.BaseElement {
+    ref Port[*] ports;
+  }
+
+  class Context extends odeBase.BaseElement {
+    attr String usageHistory;
+    attr double missionTime;
+    attr odeBase.TimeUnit missionTimeTimeUnit = "Hour";
+  }
+
+  class PhysicalComponent extends System {
+    attr String dimensions;
+    attr int pricePerUnit;
+    attr double mass;
+    attr int protectionCategory;
+    attr double usefulLifetime;
+    attr odeBase.TimeUnit usefulLifetimeTimeUnit;
+    val LifecycleCondition[*] lifecycleConditions;
+    ref LogicalComponent[*] logicalComponents;
+    ref dependability_.MaintenanceProcedure[0..1] maintenanceProcedure;
+  }
+
+  class LogicalComponent extends System {
+  }
+
+  class LifecycleCondition extends odeBase.BaseElement {
+    attr String value;
+    val LifecycleCondition[*] conditions;
+  }
+
+  enum PortDirection {
+    IN = 0;
+    OUT = 1;
+    INOUT = 2;
+  }
+
+  class Signal extends odeBase.BaseElement {
+    ref Port[1] fromPort;
+    ref Port[1] toPort;
+  }
+
+  class SafetyRelatedSystem extends System {
+    attr String safeState;
+  }
+
+  class Configuration extends odeBase.BaseElement {
+    ref System[*] subSystems;
+  }
+  
+  // SERVICE PACKAGE
+
+	class ServiceConfiguration extends odeBase.BaseElement {
+		val ProvidedService [1..*] providedServices;
+		val RequiredService [*] requiredServices;
+	}
+	 
+	abstract class Service extends odeBase.BaseElement {
+		val ServiceType [1] serviceType;
+	}
+	
+	class ServiceType extends odeBase.BaseElement {
+	}
+	
+	class ProvidedService extends Service {
+		ref RequiredService [*] allocatedRequiredServices;
+	}
+	
+	class RequiredService extends Service {
+		ref ProvidedService[*] externallyProvidedServices;
+	}
+}
+
+@namespace(uri="http://www.sesame-project.eu/ode/bayesianNetwork", prefix="bayesianNetwork_")
+package bayesianNetwork{
+
+
+	
+	
+	
+	class BayesianNetwork extends failureLogic_.FailureModel {
+		val CausalConnection [0..*] causalConnections;
+		val Node [1..*] nodes;
+		val Inference [0..*] inferences;
+		val InferenceIntent [1..*] inferenceIntents;
+	}
+	
+	class Inference extends odeBase.BaseElement {
+		val InferenceAlgorithm inferenceAlgorithm;
+		ref InferenceIntent inferenceIntent;
+	}
+	
+	class InferenceAlgorithm extends odeBase.BaseElement {
+	}
+	
+	class InferenceIntent extends odeBase.BaseElement {
+		val RequiredEvidence [0..*] requiredEvidences;
+		val InferenceTarget [1..*] inferenceTargets;
+	}
+	
+	class RequiredEvidence extends odeBase.BaseElement {
+		ref event_.OdeEvent event;
+		ref Node node;
+	}
+	
+	class InferenceTarget extends odeBase.BaseElement {
+		ref failureLogic_.Action action;
+		ref Node node;
+	}
+
+	class CausalConnection extends odeBase.BaseElement {
+		ref Node from;
+		ref Node to;
+	}
+	
+	class QuantitativeCausalConnection extends CausalConnection {
+		// TODO: remove comment once the import TODO is done
+		// ref situationAwareDynamicRiskAssessment.CauseEffectRelationship causeEffectRelationship;
+	}
+		
+	class Node extends odeBase.BaseElement {
+		val NodeState [1..*] nodeStates;
+		val ConditionalProbabilityDistribution [1..*] conditionalProbabilityDistributions;
+	}
+	
+	class QuantitativeCausalModelNode extends Node {
+		// TODO: remove comment once the import TODO is done
+		// ref situationAwareDynamicRiskAssessment.QuantitativeCausalModelNode quantitativeCausalModelNode;
+	}
+	
+	class NodeState extends odeBase.BaseElement {
+		val dimension.Dimension dimension;
+	}
+	
+	class ConditionalProbabilityDistribution extends odeBase.BaseElement {
+		val ConditionalProbabilityValue [1..*] conditionalProbabilityValues;
+		ref NodeState [0..*] parentNodeStates;
+	}
+	
+	class ConditionalProbabilityValue extends odeBase.BaseElement {
+		attr double value;
+		ref NodeState nodeState;
+	}
+}
+
+@namespace(uri="http://www.sesame-project.eu/ode/conserts", prefix="consert_")
+package consert_{
+
+	
+	
+	
+	abstract class ConSertElement extends odeBase.BaseElement{ }
+	
+	class ConSertPackage extends integration.ODEProductPackage {
+		val ConSert[*] conSerts;
+		val DependabilityPropertyType[*] dependabilityPropertyTypes;
+	}
+	
+	class ConSert extends odeBase.BaseElement {
+		val GuaranteePropagation[*] guaranteePropagations;
+		val InvariantOutput[0..1] invariantOutput;
+		val Demand[*] demands;
+		val Guarantee[*] guarantees;
+		val RuntimeEvidence[*] runtimeEvidences;
+		val ConSertGate[*] conSertGates;	
+		ref architecture.ServiceConfiguration serviceConfiguration;
+	}
+
+	class GuaranteePropagation extends odeBase.BaseElement {
+		ref ConSertElement source;
+		ref ConSertElement target;
+	}
+
+	class RuntimeEvidence extends ConSertElement {
+		val DependabilityProperty[0..1] dependabilityProperty;
+		ref dependability_.DependabilityRequirement[0..1] dependabilityRequirement;
+		ref event_.OdeEvent [*] events;
+	}
+
+	class InvariantOutput extends ConSertElement { }
+
+	class Demand extends ConSertElement {
+		val DependabilityProperty[0..1] dependabilityProperty;
+		val DemandGuaranteeDimensionRelation[*] demandGuaranteeDimensionRelations;
+		ref dependability_.DependabilityRequirement[0..1] dependabilityRequirement;
+		ref architecture.RequiredService requiredService;
+	}
+	
+	class DemandGuaranteeDimensionRelation extends odeBase.BaseElement {
+		attr DemandGuaranteeDimensionRelationType dimensionRelationType;
+		ref dimension.Dimension dimension;
+	}
+	
+	enum DemandGuaranteeDimensionRelationType{
+		DinG = 0;
+		GinD = 1;
+		Equals = 2;
+		IntersectionNotEmpty = 3;		
+	}
+
+	class Guarantee extends ConSertElement {
+		val DependabilityProperty[0..1] dependabilityProperty;
+		ref dependability_.DependabilityRequirement[0..1] dependabilityRequirement;
+		ref architecture.ProvidedService providedService;
+	}
+
+	class ConSertGate extends ConSertElement {
+		attr ConSertGateType gateType;
+	}
+	
+	// Given DependabilityRequirement, what is exactly the purpose of DependabilityProperty and Type
+	// Who is the container for this ? 
+	// (a) ConSert ? 
+	// (b) Or Dependability::Domain package ?
+	class DependabilityProperty extends odeBase.BaseElement {
+		val dimension.Dimension [1..*] dimensions;
+		ref DependabilityPropertyType dependabilityPropertyType;
+		ref dependability_.DependabilityRequirement[1..*] requirements;
+	}
+	
+	// What is the point of this ?
+	// Who is the container for this ?
+	// REMOVED, as it's not clear what it is about and it was decided to be unnessesary
+	//class Refinement extends odeBase.BaseElement {
+	//}
+	
+	// Who is the container for this ?
+	class DependabilityPropertyType extends odeBase.BaseElement {
+		ref architecture.ServiceType[0..1] serviceType;
+	}
+
+	enum ConSertGateType {
+		AND = 0;
+		OR = 1;
+	}
+}
+
+@namespace(uri="http://www.deis-project.eu/ode/dependability", prefix="dependability_")
+package dependability_{
+
+
+
+  class MaintenanceProcedure extends odeBase.BaseElement {
+  	attr String activityDescription;
+  	attr String technicalDescription;
+  	attr String toolSpecification;
+  	attr int staffNumber;
+  	attr String staffSkillLevel;
+  	attr String staffTrainingDescription;
+  }
+  
+  class MeasureType extends odeBase.BaseElement {
+  	
+  }
+  
+  class Measure extends odeBase.BaseElement {
+  	attr String intrinsicSafety;
+  	attr String safeGuard;
+  	attr String applierInformation;
+  	attr boolean riskAcceptability;
+  	attr String furtherAction;
+  	attr String source;
+  	ref MeasureType[0..1] measureType;
+  	ref AssuranceLevel[0..1] assuranceLevel;
+  }
+  
+  class FaultToleranceMeasure extends Measure {
+  	
+  }
+  
+  class DependabilityPackage extends integration.ODEProductPackage {
+  	val Measure[*] measures;
+  	val MeasureType[*] measureTypes;
+  	val MaintenanceProcedure[*] maintenanceProcedures;
+  	val HARAPackage[*] HARAPackages;
+  	val RequirementPackage[*] requirementPackages;
+  	val DomainPackage[*] domainPackages;
+  	val TARAPackage[*] TARAPackages;
+  }
+
+  // HARA PACKAGE
+
+  class HARAPackage extends integration.ODEProductPackage { 
+	val Hazard[*] hazards;
+	val HazardType[*] hazardTypes;
+	val HazardTypeSystem[*] hazardTypeSystems;
+	val Malfunction[*] malfunctions;
+	val RiskAssessment[*] riskAssessments;
+    val RiskParameter[*] riskParameters;
+  }
+	
+  class Hazard extends odeBase.BaseElement {
+    attr String condition;
+    ref failureLogic_.Failure[*] failures;
+    ref Measure[*] measures;
+    ref HazardType[0..1] hazardType;
+  }
+	
+  class HazardTypeSystem extends odeBase.BaseElement {
+	ref HazardType[*] hazardTypes;
+  }
+	
+  class HazardType extends odeBase.BaseElement {
+  }
+	
+  class Malfunction extends odeBase.BaseElement {
+	ref Hazard[*] hazards;
+  }
+	
+  class RiskAssessment extends odeBase.BaseElement {
+	attr String relatedStandard;
+	ref RiskParameter[*] riskParameters;
+	ref Hazard[0..1] hazard;
+  }
+	
+  class RiskParameter extends odeBase.BaseElement {
+	attr String argument;
+  }
+	
+  class Situation extends RiskParameter {
+	attr String likelihood;
+  }
+	
+  class Accident extends RiskParameter {
+	attr String severity;
+  }
+	
+  class OperatorMeasure extends RiskParameter {
+	attr String controlability;
+  }
+  
+  class Actor extends RiskParameter {
+  	
+  }
+	
+  // REQUIREMENT PACKAGE
+	
+  class RequirementPackage extends integration.ODEProductPackage {
+	val RequirementSource[*] requirementSources;
+	val DependabilityRequirement[*] dependabilityRequirements;
+  }
+	
+  abstract class RequirementSource extends odeBase.BaseElement {
+  }
+	
+  class LegalContract extends RequirementSource{
+  }
+	
+  abstract class DependabilityRequirement extends odeBase.BaseElement {
+	attr String decompositionArgument;
+	ref DependabilityRequirement[*] refinedRequirements;
+	ref RequirementSource[0..1] requirementSource;
+	ref Measure[*] measures;
+	ref failureLogic_.Failure[*] failures;
+	ref AssuranceLevel[0..1] assuranceLevel;
+	ref MaintenanceProcedure[*] maintenanceProcedures;
+	ref failureLogic_.Action[*] requiredActions;
+  }
+	
+  class SafetyRequirement extends DependabilityRequirement {
+	attr double failureReactionTime;
+	attr double failureDetectionTime;
+	attr double failureLatencyTime;
+	attr boolean isSafetyGoal;
+	ref Hazard[*] hazards;
+  }
+	
+  class SecurityRequirement extends DependabilityRequirement {
+	ref SecurityCapability[*] securityCapabilities;
+  }
+	   
+  // DOMAIN PACKAGE
+	    
+  class DomainPackage extends integration.ODEProductPackage {
+    val Standard[*] standards;
+    val AssuranceLevel[*] assuranceLevels;
+  }
+	
+  class Standard extends odeBase.BaseElement {
+  }
+	
+  class AssuranceLevel extends odeBase.BaseElement {
+  }
+	
+  class SafetyStandard extends Standard {
+    ref AssuranceLevel[*] assuranceLevels;
+  }
+
+  // TARA PACKAGE
+  
+  enum SecurityApplicationType {
+	Preventive = 0;
+	Active = 1;
+	Passive = 2;
+  }
+  	
+  enum FinancialCostType {
+	USD = 0;
+	EUR = 1;
+	GBP = 2;
+  }
+  	
+  enum OperationalCostType {
+    Workhours = 0;
+    Workdays = 1;
+  	Workmonths = 2;
+  }
+  	
+  class TARAPackage extends integration.ODEProductPackage {
+  	val SecurityRisk[*] identifiedRisks;
+  	val SecurityControl[*] controls;
+  	val Asset[*] consideredAssets;
+  	val ThreatAgent[*] consideredThreatAgents;
+  }
+  	
+  class Asset extends odeBase.BaseElement {
+  	attr String cpeId;
+  	attr String importance;
+  	attr double financialValue;
+  	attr FinancialCostType financialCostType;
+  	attr double operationalCost;
+  	attr OperationalCostType operationalCostType;
+  }
+  	
+  class SecurityControl extends Measure {
+  	attr String category;
+  	attr SecurityApplicationType type;
+  	ref Vulnerability[*] vulnerabilities;
+  	ref Attack[*] attacks;
+  }
+  	
+  class SecurityCapability extends odeBase.BaseElement {
+  	attr String category;
+  	attr SecurityApplicationType type;
+  	ref SecurityControl[*] implementedBy;
+  }
+  	
+  class Vulnerability extends odeBase.BaseElement {
+  	attr String category;
+  	attr String dbId; // represents a unique id from standard database e.g. CVE, RVD
+  	attr String severityDescription;
+  	attr String[*] keywords;
+  	val VulnerabilityScore[1] cvss; // represents cvss or rvss or equivalent
+  	//attr String vulnerabilityDescription; //already covered by BaseElement.description
+  	//ref Asset[*] vulnerableAsset; //already addressed by VulnerableItem
+  }
+  
+  class VulnerabilityScore extends odeBase.BaseElement {
+  	attr String type; // e.g. CVSS, RVSS
+  	attr double score; // changed from float to double, because in Thrift you can only define attributes with the type double and therefore the transformation will be easier.
+  	attr String vector;
+  	attr String qualitative;
+  }
+  	
+  class VulnerableItem extends Asset{
+  	val Vulnerability[*] vulnerabilities;
+  }
+  
+  class Weakness extends odeBase.BaseElement {
+  	attr String cweId;
+  	//attr String title; //already covered by element name
+  	//attr String cweDescription; //already covered by BaseElement.description
+  	attr String cweExtendedDescription;
+  	ref Vulnerability[*] associatedVulnerabilities;
+  }
+  	
+  class AttackerGoal extends odeBase.BaseElement {
+  	attr String category;
+  	val SecurityCapability[*] addressedBy;
+  	val Attack[*] attacks;
+  	ref VulnerableItem[*] attackedItems;
+  }
+  	
+  class SecurityRisk extends odeBase.BaseElement {
+  	attr double likelihood;
+  	attr String impactAsset;
+  	attr String impactIndividuals;
+  	attr String impactBusiness;
+  	ref AttackerGoal[*] attackerGoals;
+  }
+  	
+  class Attack extends odeBase.BaseElement {
+  	attr String capecId;
+  	//attr String title; //already covered by BaseElement.name
+  	//attr String capecDescription; //already covered by BaseElement.description
+  	attr String severity;
+  	//attr String type; //already covered by category
+  	//attr String mitigation; //introduced reference in SecurityControl to cover this
+  	attr String likelihood;
+  	attr String category;
+  	attr double financialCost;
+  	attr FinancialCostType financialCostType;
+  	attr double timeRequired;
+  	attr odeBase.TimeUnit timeUnit;
+  	attr String difficulty;
+  	attr String detectability;
+  	val Weakness[*] relatedWeaknesses;
+  	ref Attack[*] relatedAttacks;
+  	ref failureLogic_.SecurityViolation[*] violations;
+  	ref Vulnerability[*] exploitedVulnerabilities;
+  }
+  	
+  class Payload extends Attack {
+  		
+  }
+  	
+  class ThreatAction extends Attack {
+  		
+  }
+  	
+  class ThreatAgent extends odeBase.BaseElement {
+  	attr String skillLevel;
+  	attr String motivation;
+  	attr String anonymityDesire;
+  	val AttackerGoal[*] attackerGoals;
+  }
+  	
+  class Human extends ThreatAgent {
+  	ref ThreatAction[*] actions;
+  }
+  	
+  class NonHuman extends ThreatAgent {
+  	ref Payload[*] payloads;
+  }
+  	
+}
+
+@namespace(uri="http://www.sesame-project.eu/ode/dimension", prefix="dimension_")
+package dimension{
+
+	
+	
+	abstract class Dimension extends odeBase.BaseElement {
+		val DimensionType type;		
+	}	
+		
+	class CategoricalDimension extends Dimension {
+		val CategoryMember [1..*] covered;
+	}
+	
+	class CategoryMember extends odeBase.BaseElement { }
+
+	class BinaryDimension extends Dimension {
+		attr boolean value;
+	 }
+	
+	class DimensionType extends odeBase.BaseElement { }
+		
+	class NumericRangeDimension extends Dimension {
+		attr UnitOfMeasurements unitOfMeasurement;
+		val NumericBoundary[0..1] start;
+		val NumericBoundary[0..1] end;
+	}
+	
+	class NumericBoundary extends odeBase.BaseElement {
+		attr boolean inclusive;
+		val NumericValue value;
+	}
+	
+	class NumericValue {
+		attr double number;
+		attr NumberType numberType;
+		attr double epsilon;
+	}
+	
+	enum NumberType {
+		u8 = 0;
+		u16 = 1;
+		u32 = 2;
+		u64 = 3;
+		i8 = 4;
+		i16 = 5;
+		i32 = 6;
+		i64 = 7;
+		SPFP = 8; // single precision floating point (float)
+		DPFP = 9; // double precision floating point (double)
+	}
+	
+	enum UnitOfMeasurements {
+		MPS = 0;
+		KMH = 1;
+		METER = 2;
+		KILOMETER = 3;
+		SECOND = 4;
+		NEWTON = 5;
+	}
+}
+
+@namespace(uri="http://www.sesame-project.eu/ode/event", prefix="event_")
+package event_{
+
+	
+
+
+  enum DataType {
+  	IntegerData = 0;
+  	RealData = 1;
+  	LogicalData = 2;  	
+  }
+
+  class OdeEvent extends odeBase.BaseElement {
+	attr boolean isPersistent = false;
+	val EventMonitor[*] monitors;
+  }
+  
+  class ConditionEvent extends OdeEvent {
+  	attr String condition;
+  }
+  
+  class ExternalEvent extends OdeEvent {
+  	attr String sourceID;
+  	attr String message;
+  	attr String messageType;
+  }
+  
+  class MLEvent extends OdeEvent {  	  	
+  }
+  
+  class MLCorrectOutcomeEvent extends MLEvent {  	
+  }
+    
+  class MLIncorrectOutcomeEvent extends MLEvent {  	
+  }
+  
+  class MLModelQualityEvent extends MLEvent {
+  }
+  
+  class MLInputQualityEvent extends MLEvent {  	
+  }
+  
+  class MLScopeComplianceEvent extends MLEvent {  	
+  }
+  
+  class IDSEvent extends MLEvent {
+  	attr String protocol;
+  	attr String sourceAddress;
+  	attr String sourcePort;
+  	attr String destinationAddress;
+  	attr String destinationPort;
+  	attr String message;
+  	attr String content;
+  	attr String reference;
+  	attr String classType;
+  	attr String snortRuleId;
+  	attr String revision;
+  }
+  
+  class EventMonitor extends odeBase.BaseElement {
+  	attr String variableName;
+  	attr double samplingRate;
+  	attr DataType dataType;
+  	attr odeBase.TimeUnit sampleRateUnit;
+  	//ref architecture.System[*] source; -> Caused cycle, relation moved to architecture.emf
+  }
+  
+  abstract class MLEventMonitor extends EventMonitor {
+  	  	
+  }
+  
+  class IDSEventMonitor extends MLEventMonitor {
+  	
+  }
+  
+  class UncertaintyWrapperMonitor extends MLEventMonitor {
+  	attr double confidenceLevel;
+  	val QualityImpactModel qualityImpactModel;
+  	val ScopeComplianceModel scopeComplianceModel;
+  }
+  
+  class ScopeComplianceMonitor extends MLEventMonitor {
+  	val DistanceThreshold[0..*] distanceThresholds;
+  	val ScopeFactor[*] scopeFactors;
+  }
+  
+  class DistanceThreshold extends odeBase.BaseElement {
+  	attr double[1..*] thresholds;  	
+  }
+  
+  class ScopeComplianceModel extends odeBase.BaseElement {
+  	val ScopeFactor[*] scopeFactors;
+  }
+  
+  class ScopeFactor extends odeBase.BaseElement {  	
+  }
+  
+  class QualityImpactModel extends odeBase.BaseElement {
+  	val QualityImpactFactor[*] qualityImpactFactors;
+  }
+  
+  class QualityImpactFactor extends odeBase.BaseElement {  	
+  }
+  
+  class InputQualityMonitor extends MLEventMonitor {
+  	val QualityImpactFactor[*] qualityImpactFactors;
+  }
+  
+  class EventPackage extends integration.ODEProductPackage {
+  	val OdeEvent[*] events;
+  }
+}
+
+@namespace(uri="http://www.deis-project.eu/ode/failureLogic", prefix="failureLogic_")
+package failureLogic_{
+
+
+  
+  class FailureLogicPackage extends integration.ODEProductPackage {
+  	val FailureModel[*] failureModels;
+  	val Action[*] actions;
+  }
+
+  class Failure extends odeBase.BaseElement {
+  	attr FailureOriginType originType;
+  	attr String failureClass;
+    attr double unavailability;
+    val ProbDist[0..1] failureProbDistribution;
+    ref event_.OdeEvent[*] events;
+    ref Failure[*] ccfFailures;
+    ref CommonCauseFailure[0..1] causedBy;
+  }
+  
+  class CommonCauseFailure extends Failure {  	
+  }
+
+  class SecurityViolation extends Failure {
+  }
+    
+  enum FailureOriginType {
+  	Input = 0;
+  	Output = 1;
+  	Internal = 2;
+  }
+  
+  class FailureModel extends odeBase.BaseElement {
+  	val MinimalCutsets[*] minimalCutsets;
+  	val Failure[*] failures;
+  	ref FailureModel[*] subModels;
+  }
+ 
+  class MinimalCutsets extends odeBase.BaseElement {
+  	val MinimalCutset[*] cutsets;
+  	ref Failure[0..1] failure;
+  }
+  
+  class MinimalCutset extends odeBase.BaseElement {
+  	val FailureSequence[*] sequences;
+  	val CutsetEvent[*] causes; 
+  }
+  
+  class CutsetEvent extends odeBase.BaseElement {
+  	attr boolean isNegated;
+  	ref State[0..1] state;
+  	ref event_.OdeEvent[0..1] event;
+  	ref Failure[0..1] failure;
+  }
+  
+  class FailureSequence extends odeBase.BaseElement {
+  	ref CutsetEvent[*] events;
+  }
+ 
+  class ProbDist extends odeBase.BaseElement {
+ 	attr String type;
+ 	val ProbDistParam[*] parameters;
+  }
+ 
+  class ProbDistParam extends odeBase.BaseElement {
+ 	attr String value;
+  }
+  
+  // ACTION PACKAGE -> moved here from action.emf, eliminates cycle between action::WarningAction -> failureLogic::Cause -> action::Action
+  
+  abstract class Action extends odeBase.BaseElement {
+	ref Action[*] prerequisites;
+	ref Action[*] subActions;
+	ref event_.OdeEvent[*] triggeringEvents;
+  }
+	
+  class MessageAction extends Action {
+	attr String sourceID;
+	attr String message;
+	attr String messageType;		
+  }
+	
+  class WarningAction extends Action {
+	attr int priorityLevel;
+	attr String warning;
+	attr String warningType;
+	ref Failure[*] failures;
+  }
+	
+	class FunctionAction extends Action {
+		attr String function;
+	} 
+ 
+ //FTA PACKAGE
+ 
+  enum GateType {
+    OR = 0;
+    AND = 1;
+    NOT = 2;
+    XOR = 3;
+    VOTE = 4;
+    PAND = 5;
+    POR = 6;
+    SAND = 7;
+    InputEvent = 8;
+    OutputEvent = 9;
+  }
+
+  enum CauseType {
+	InputEvent = 0;
+	OutputEvent = 1;
+	BasicEvent = 2;
+	Gate = 3;
+	NormalEvent = 4;
+  }
+
+  class FaultTree extends FailureModel {
+	ref Cause[0..1] topEvent;
+	val Cause[*] causes;
+  }
+
+  class Cause extends odeBase.BaseElement{
+	attr CauseType causeType;
+	ref Failure[0..1] failure;
+	ref State[0..1] state;
+	ref Action[*] actions;
+	ref event_.OdeEvent[*] evidences;
+  }
+
+  class Gate extends Cause {
+	attr GateType gateType;
+	ref Cause[*] causes;
+  }
+
+  // MARKOV PACKAGE
+ 	
+  class StateMachine extends FailureModel {
+ 	val Transition[*] transitions;
+ 	val State[*] states;
+ 	val TransitionMatrix[*] transitionMatrices;
+  }
+ 	
+  class State extends odeBase.BaseElement {
+ 	attr boolean isInitialState;
+ 	attr boolean isFailState;
+ 	val ProbDist initialProb;
+ 	ref Failure[*] failures;
+ 	ref Action[*] onEntry;
+ 	ref Action[*] onExit;
+  }
+ 	
+  class Transition extends odeBase.BaseElement {
+  	attr double transition; // QUESTION: Shall this attribute be removed?
+ 	ref State fromState;
+ 	ref State toState;
+ 	ref event_.OdeEvent[*] triggers;
+  }
+  
+  class TransitionMatrix extends odeBase.BaseElement {
+  	val TransitionRowEntry[*] rows;
+  }
+  
+  class TransitionColumnEntry extends odeBase.BaseElement {
+  	ref State[0..1] toState;
+  	ref Failure[0..1] failure;
+  }
+  
+  class TransitionRowEntry extends odeBase.BaseElement {
+  	ref State[0..1] fromState;
+  	val TransitionColumnEntry[*] columns;
+  }
+  
+  class MarkovTransition extends Transition {
+  	val ProbDist[0..1] transitionProbDist;
+  }
+  
+  // FMEA PACKAGE
+  	
+  enum FMEAType {
+    FMEA = 0;
+    FMEDA = 1;
+  }
+ 	
+  class FMEA extends FailureModel {
+    attr FMEAType type;
+    val FMEAEntry[*] entries;
+  }
+ 	
+  class FMEAEntry extends odeBase.BaseElement {
+    ref Failure[0..1] effect;
+ 	ref Failure[0..1] mode;
+  }
+ 	
+  class FMEDAEntry extends FMEAEntry {
+    attr double diagnosisRate;
+    val ProbDist[0..1] diagnosisProbDistribution;
+  }
+}
+
+@namespace(uri="http://www.deis-project.eu/ode/integration", prefix="integration")
+package integration{
+
+
+
+class DDIPackage extends odeBase.BaseElement {
+	val ODEProductPackage[*] odeProductPackages;
+	val assuranceCase_.AssuranceCasePackage[*] assuranceCasePackages;
+	val traceability_.TraceabilityPackage[*] traceabilityPackages;
+}
+
+abstract class ODEProductPackage extends odeBase.BaseElement {
+	
+}
+}
+
+@namespace(uri="http://www.deis-project.eu/ode/base", prefix="odeBase")
+package odeBase{
+
+  abstract class BaseElement {
+    val KeyValueMap[*] keyValueMaps;
+    attr long Id;
+    attr String name;
+    attr String description;
+  }
+  
+  enum TimeUnit {
+  	Millisecond = 0;
+    Second = 1;
+    Minute = 2;
+    Hour = 3;
+    Day = 4;
+    Week = 5;
+    Month = 6;
+    Year = 7;
+  }
+  
+  class KeyValueMap {
+    attr String key;
+    val Value[*] values;
+  }
+
+  class Value {
+    attr String tag;
+    attr String value;
+  }
+}
+
+@namespace(uri="http://www.sesame-project.eu/ode/sinadra", prefix="sinadra_")
+package sinadra_{
+
+	
+	
+	abstract class BehaviorModelElement extends odeBase.BaseElement {
+		ref QualitativeCausalModelNode[1] causalModelNode;
+	}
+	
+	class QualitativeCausalModelNode extends odeBase.BaseElement {
+		ref bayesianNetwork.QuantitativeCausalModelNode[0..1] quantitative;
+	}
+	
+	class CauseEffectRelationship extends odeBase.BaseElement {
+		ref QualitativeCausalModelNode[1] cause;
+		ref QualitativeCausalModelNode[1] effect;
+		ref bayesianNetwork.QuantitativeCausalConnection[0..1] quantitative;
+	}
+	
+	class QualitativeCausalModel extends odeBase.BaseElement {
+		val QualitativeCausalModelNode[1..*] causalNodes;
+		val CauseEffectRelationship[*] causeEffectRelationships;
+	}
+	
+	class SituationAwareRiskModel extends odeBase.BaseElement {
+		val BehaviorModelElement[1..*] behaviorModelElements;
+	}
+	
+	class SinadraPackage extends integration.ODEProductPackage {
+		val SituationAwareRiskModel[1..*] situationAwareRiskModels;
+		val QualitativeCausalModel[1..*] qualitativeCausalModels;
+	}
+	
+	// Children of BehaviorModelElement
+	
+	class Behavior extends BehaviorModelElement {
+		ref dependability_.Actor[1..*] actors;
+	}
+	
+	class CognitiveStep extends BehaviorModelElement {
+		ref Behavior[1..*] behaviors;
+	}	
+	
+	class Capability extends BehaviorModelElement {
+		ref CognitiveStep[1..*] cognitiveSteps;
+	}
+	
+	class CapabilityDeviation extends BehaviorModelElement {
+		ref dependability_.RiskAssessment[1..*] risks;
+		ref Capability[*] capabilities;
+		ref CapabilityDeviation[*] subDeviations;
+	}
+	
+	class DeviationInfluenceConcept extends BehaviorModelElement {
+		ref DeviationInfluenceConcept[*] subConcepts;
+		ref CapabilityDeviation[1..*] capabilityDeviations;
+	}
+	
+	class SituationFeature extends BehaviorModelElement {
+		ref dependability_.Situation[0..1] situation;
+		ref SituationFeature[*] subFeatures;
+		ref DeviationInfluenceConcept[1..*] deviationInfluenceConcepts;
+	}
+}
+
+@namespace(uri="http://www.deis-project.eu/ode/tracability", prefix="traceability_")
+package traceability_{
+
+
+class TraceabilityPackage{
+	val Trace[*] traces;
+}
+
+class Trace {
+    ref odeBase.BaseElement odeElement;
+    ref base.ModelElement sacmElement;
+  }
+
+}
+

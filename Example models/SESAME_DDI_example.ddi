@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ASCII"?>
+<integration:DDIPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:architecture="http://www.deis-project.eu/ode/architecture" xmlns:failureLogic_="http://www.deis-project.eu/ode/failureLogic" xmlns:integration="http://www.deis-project.eu/ode/integration" name="" description="">
+  <odeProductPackages xsi:type="failureLogic_:FailureLogicPackage" Id="1" name="FailureLogicPackage" description="">
+    <failureModels xsi:type="failureLogic_:FaultTree" Id="3" name="SubComp_1" description="">
+      <failures Id="4" name="Out FM_36" description="" originType="Output" failureClass="NONE"/>
+      <failures Id="6" name="Out FM_38" description="" originType="Output" failureClass="NONE"/>
+      <failures Id="8" name="In FM_40" description="" failureClass="NONE">
+        <failureProbDistribution Id="9" name="" description="" type="NONE"/>
+      </failures>
+      <failures Id="12" name="Basic Event_59" description="" originType="Internal" failureClass="">
+        <failureProbDistribution Id="13" name="" description="" type="NONE"/>
+      </failures>
+      <failures Id="15" name="Basic Event_60" description="" originType="Internal" failureClass="">
+        <failureProbDistribution Id="16" name="" description="" type="NONE"/>
+      </failures>
+      <causes xsi:type="failureLogic_:Gate" Id="5" name="Out FM_36" description="" causeType="OutputEvent" failure="//@odeProductPackages.0/@failureModels.0/@failures.0" gateType="OutputEvent" causes="//@odeProductPackages.0/@failureModels.0/@causes.4"/>
+      <causes xsi:type="failureLogic_:Gate" Id="7" name="Out FM_38" description="" causeType="OutputEvent" failure="//@odeProductPackages.0/@failureModels.0/@failures.1" gateType="OutputEvent" causes="//@odeProductPackages.0/@failureModels.0/@causes.3"/>
+      <causes xsi:type="failureLogic_:Gate" Id="10" name="In FM_40" description="" failure="//@odeProductPackages.0/@failureModels.0/@failures.2" gateType="InputEvent" causes="//@odeProductPackages.0/@failureModels.3/@causes.1"/>
+      <causes xsi:type="failureLogic_:Gate" Id="11" name="And_61" description="" causeType="Gate" gateType="AND" causes="//@odeProductPackages.0/@failureModels.0/@causes.5 //@odeProductPackages.0/@failureModels.0/@causes.2"/>
+      <causes Id="14" name="Basic Event_59" description="" causeType="BasicEvent" failure="//@odeProductPackages.0/@failureModels.0/@failures.3"/>
+      <causes Id="17" name="Basic Event_60" description="" causeType="BasicEvent" failure="//@odeProductPackages.0/@failureModels.0/@failures.4"/>
+    </failureModels>
+    <failureModels xsi:type="failureLogic_:FaultTree" Id="18" name="SubComp_2" description="">
+      <failures Id="19" name="Out FM_42" description="" originType="Output" failureClass="NONE"/>
+      <failures Id="21" name="In FM_44" description="" failureClass="NONE">
+        <failureProbDistribution Id="22" name="" description="" type="NONE"/>
+      </failures>
+      <failures Id="26" name="Basic Event_55" description="" originType="Internal" failureClass="">
+        <failureProbDistribution Id="27" name="" description="" type="NONE"/>
+      </failures>
+      <failures Id="29" name="Basic Event_56" description="" originType="Internal" failureClass="">
+        <failureProbDistribution Id="30" name="" description="" type="NONE"/>
+      </failures>
+      <causes xsi:type="failureLogic_:Gate" Id="20" name="Out FM_42" description="" causeType="OutputEvent" failure="//@odeProductPackages.0/@failureModels.1/@failures.0" gateType="OutputEvent" causes="//@odeProductPackages.0/@failureModels.1/@causes.3"/>
+      <causes xsi:type="failureLogic_:Gate" Id="23" name="In FM_44" description="" failure="//@odeProductPackages.0/@failureModels.1/@failures.1" gateType="InputEvent" causes="//@odeProductPackages.0/@failureModels.0/@causes.1"/>
+      <causes xsi:type="failureLogic_:Gate" Id="24" name="And_57" description="" causeType="Gate" gateType="AND" causes="//@odeProductPackages.0/@failureModels.1/@causes.5 //@odeProductPackages.0/@failureModels.1/@causes.4"/>
+      <causes xsi:type="failureLogic_:Gate" Id="25" name="Or_58" description="" causeType="Gate" causes="//@odeProductPackages.0/@failureModels.1/@causes.2 //@odeProductPackages.0/@failureModels.1/@causes.1"/>
+      <causes Id="28" name="Basic Event_55" description="" causeType="BasicEvent" failure="//@odeProductPackages.0/@failureModels.1/@failures.2"/>
+      <causes Id="31" name="Basic Event_56" description="" causeType="BasicEvent" failure="//@odeProductPackages.0/@failureModels.1/@failures.3"/>
+    </failureModels>
+    <failureModels xsi:type="failureLogic_:FaultTree" Id="32" name="SubComp_3" description="">
+      <failures Id="33" name="Out FM_50" description="" originType="Output" failureClass="NONE"/>
+      <failures Id="35" name="In FM_46" description="" failureClass="NONE">
+        <failureProbDistribution Id="36" name="" description="" type="NONE"/>
+      </failures>
+      <failures Id="38" name="In FM_48" description="" failureClass="NONE">
+        <failureProbDistribution Id="39" name="" description="" type="NONE"/>
+      </failures>
+      <failures Id="43" name="Basic Event_54" description="" originType="Internal" failureClass="">
+        <failureProbDistribution Id="44" name="" description="" type="NONE"/>
+      </failures>
+      <causes xsi:type="failureLogic_:Gate" Id="34" name="Out FM_50" description="" causeType="OutputEvent" failure="//@odeProductPackages.0/@failureModels.2/@failures.0" gateType="OutputEvent" causes="//@odeProductPackages.0/@failureModels.2/@causes.3"/>
+      <causes xsi:type="failureLogic_:Gate" Id="37" name="In FM_46" description="" failure="//@odeProductPackages.0/@failureModels.2/@failures.1" gateType="InputEvent" causes="//@odeProductPackages.0/@failureModels.0/@causes.0"/>
+      <causes xsi:type="failureLogic_:Gate" Id="40" name="In FM_48" description="" failure="//@odeProductPackages.0/@failureModels.2/@failures.2" gateType="InputEvent" causes="//@odeProductPackages.0/@failureModels.1/@causes.0"/>
+      <causes xsi:type="failureLogic_:Gate" Id="41" name="Or_52" description="" causeType="Gate" causes="//@odeProductPackages.0/@failureModels.2/@causes.2 //@odeProductPackages.0/@failureModels.2/@causes.4"/>
+      <causes xsi:type="failureLogic_:Gate" Id="42" name="And_53" description="" causeType="Gate" gateType="AND" causes="//@odeProductPackages.0/@failureModels.2/@causes.5 //@odeProductPackages.0/@failureModels.2/@causes.1"/>
+      <causes Id="45" name="Basic Event_54" description="" causeType="BasicEvent" failure="//@odeProductPackages.0/@failureModels.2/@failures.3"/>
+    </failureModels>
+    <failureModels xsi:type="failureLogic_:FaultTree" Id="2" name="Main_Component" description="" subModels="//@odeProductPackages.0/@failureModels.0 //@odeProductPackages.0/@failureModels.1 //@odeProductPackages.0/@failureModels.2">
+      <failures Id="46" name="Out FM_62" description="" originType="Output" failureClass="NONE"/>
+      <failures Id="48" name="In FM_63" description="" failureClass="NONE">
+        <failureProbDistribution Id="49" name="" description="" type="NONE"/>
+      </failures>
+      <causes xsi:type="failureLogic_:Gate" Id="47" name="Out FM_62" description="" causeType="OutputEvent" failure="//@odeProductPackages.0/@failureModels.3/@failures.0" gateType="OutputEvent" causes="//@odeProductPackages.0/@failureModels.2/@causes.0"/>
+      <causes xsi:type="failureLogic_:Gate" Id="50" name="In FM_63" description="" failure="//@odeProductPackages.0/@failureModels.3/@failures.1" gateType="InputEvent"/>
+    </failureModels>
+  </odeProductPackages>
+  <odeProductPackages xsi:type="architecture:DesignPackage" Id="51" name="DesignPackage" description="">
+    <systems Id="60" name="SubComp_1" description="" failureModels="//@odeProductPackages.0/@failureModels.0">
+      <systemBoundaries Id="59" name="SubComp_1_Boundary" description="" ports="//@odeProductPackages.1/@systems.0/@ports.0 //@odeProductPackages.1/@systems.0/@ports.1 //@odeProductPackages.1/@systems.0/@ports.2"/>
+      <ports Id="56" name="Inport_24" description="" flowType="" interfaceFailures="//@odeProductPackages.0/@failureModels.0/@failures.2"/>
+      <ports Id="57" name="Outport_9" description="" flowType="" direction="OUT" interfaceFailures="//@odeProductPackages.0/@failureModels.0/@failures.1"/>
+      <ports Id="58" name="Outport_19" description="" flowType="" direction="OUT" interfaceFailures="//@odeProductPackages.0/@failureModels.0/@failures.0"/>
+    </systems>
+    <systems Id="64" name="SubComp_2" description="" failureModels="//@odeProductPackages.0/@failureModels.1">
+      <systemBoundaries Id="63" name="SubComp_2_Boundary" description="" ports="//@odeProductPackages.1/@systems.1/@ports.0 //@odeProductPackages.1/@systems.1/@ports.1"/>
+      <ports Id="61" name="Inport_17" description="" flowType="" interfaceFailures="//@odeProductPackages.0/@failureModels.1/@failures.1"/>
+      <ports Id="62" name="Outport_15" description="" flowType="" direction="OUT" interfaceFailures="//@odeProductPackages.0/@failureModels.1/@failures.0"/>
+    </systems>
+    <systems Id="69" name="SubComp_3" description="" failureModels="//@odeProductPackages.0/@failureModels.2">
+      <systemBoundaries Id="68" name="SubComp_3_Boundary" description="" ports="//@odeProductPackages.1/@systems.2/@ports.0 //@odeProductPackages.1/@systems.2/@ports.1 //@odeProductPackages.1/@systems.2/@ports.2"/>
+      <ports Id="65" name="Inport_11" description="" flowType="" interfaceFailures="//@odeProductPackages.0/@failureModels.2/@failures.1"/>
+      <ports Id="66" name="Inport_13" description="" flowType="" interfaceFailures="//@odeProductPackages.0/@failureModels.2/@failures.2"/>
+      <ports Id="67" name="Outport_26" description="" flowType="" direction="OUT" interfaceFailures="//@odeProductPackages.0/@failureModels.2/@failures.0"/>
+    </systems>
+    <systems Id="55" name="Main_Component" description="" subSystems="//@odeProductPackages.1/@systems.0 //@odeProductPackages.1/@systems.1 //@odeProductPackages.1/@systems.2" failureModels="//@odeProductPackages.0/@failureModels.3">
+      <systemBoundaries Id="54" name="Main_Component_Boundary" description="" ports="//@odeProductPackages.1/@systems.3/@ports.0 //@odeProductPackages.1/@systems.3/@ports.1"/>
+      <signals name="" description="" fromPort="//@odeProductPackages.1/@systems.0/@ports.1" toPort="//@odeProductPackages.1/@systems.1/@ports.0"/>
+      <signals name="" description="" fromPort="//@odeProductPackages.1/@systems.1/@ports.1" toPort="//@odeProductPackages.1/@systems.2/@ports.1"/>
+      <signals name="" description="" fromPort="//@odeProductPackages.1/@systems.0/@ports.2" toPort="//@odeProductPackages.1/@systems.2/@ports.0"/>
+      <signals name="" description="" fromPort="//@odeProductPackages.1/@systems.3/@ports.0" toPort="//@odeProductPackages.1/@systems.0/@ports.0"/>
+      <signals name="" description="" fromPort="//@odeProductPackages.1/@systems.2/@ports.2" toPort="//@odeProductPackages.1/@systems.3/@ports.1"/>
+      <ports Id="52" name="Inport_21" description="" flowType="" interfaceFailures="//@odeProductPackages.0/@failureModels.3/@failures.1"/>
+      <ports Id="53" name="Outport_28" description="" flowType="" direction="OUT" interfaceFailures="//@odeProductPackages.0/@failureModels.3/@failures.0"/>
+    </systems>
+  </odeProductPackages>
+</integration:DDIPackage>

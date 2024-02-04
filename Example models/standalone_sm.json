@@ -1,0 +1,48 @@
+{
+	"name" : "Simple drone SM",
+	"states" :
+	[
+		{
+			"name" : "Operational",
+			"position" : [-400, -100],
+			"colour" : [ 0.25, 0.75, 0.25 ],
+			"start" : true,
+			"fail" : false
+		},
+		{
+			"name" : "Degraded",
+			"position" : [0, 150],
+			"colour" : [ 0.75, 0.75, 0.25 ],
+			"start" : false,
+			"fail" : false
+		},
+		{
+			"name" : "Failed",
+			"position" : [400, -100],
+			"colour" : [ 0.75, 0.25, 0.25 ],
+			"start" : false,
+			"fail" : true
+		},
+	],
+	"transitions" :
+	[
+		{
+			"name" : "degraded",
+			"from" : "Operational",
+			"to" : "Degraded",
+			"trigger" : "Default::Nav.failed; Default::Comms.failed"
+		},
+		{
+			"name" : "failed directly",
+			"from" : "Operational",
+			"to" : "Failed",
+			"trigger" : "Drone_failed"
+		},
+		{
+			"name" : "failed",
+			"from" : "Degraded",
+			"to" : "Failed",
+			"trigger" : "Drone_failed"
+		},
+	]
+}

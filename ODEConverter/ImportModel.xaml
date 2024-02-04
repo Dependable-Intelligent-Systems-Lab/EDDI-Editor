@@ -1,0 +1,326 @@
+﻿<Window x:Class="ODEConverter.ImportModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ODEConverter"
+        mc:Ignorable="d"
+        xmlns:viewmodels="clr-namespace:ODEConverter.Viewmodels"
+        xmlns:viewmodels_hip="clr-namespace:ODEConverter.Viewmodels.hip"
+        xmlns:viewmodels_ode="clr-namespace:ODEConverter.Viewmodels.ode"
+        xmlns:viewmodels_dym="clr-namespace:ODEConverter.Viewmodels.dym"
+        xmlns:wpftoolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="Import Model" Height="1000" Width="1600">
+    <Window.Resources>
+
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels:ObservableList}" ItemsSource="{Binding}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="Contents" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels:ExpandableList}" ItemsSource="{Binding}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:AnalysisResultsVM}" ItemsSource="{Binding Items}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="FMEA + FTA Results" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Results" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_hip:BasicEventVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Basic Event" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_hip:CauseVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Cause" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:ComponentVM}" ItemsSource="{Binding Implementations}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Component" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:CutSetVM}" ItemsSource="{Binding Events}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Text}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Cutset" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_hip:CutSetSummaryVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Text}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Cut Set Summary" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:FailureDataVM}" ItemsSource="{Binding xxx}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Model" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:FaultTreeVM}" ItemsSource="{Binding AllCutSets}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Fault Tree" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:FaultTreeNodeVM}" ItemsSource="{Binding Children}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Fault Tree" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:FMEAVM}" ItemsSource="{Binding Components}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="System FMEA" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="FMEA" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:FMEAComponentVM}" ItemsSource="{Binding Events}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="FMEA Component" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:HazardVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Hazard" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:ImplementationVM}" ItemsSource="{Binding Items}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Implementation" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:LineVM}" ItemsSource="{Binding xxx}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Line" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:ModelVM}" ItemsSource="{Binding Items}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Model" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_hip:OutputDeviationVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Output Deviation" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:PerspectiveVM}" ItemsSource="{Binding SystemList}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Perspective" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:PortVM}" ItemsSource="{Binding OutputDeviations}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Port" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_hip:SystemVM}" ItemsSource="{Binding Components}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="System" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_hip:UnavailabilityFormulaVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Unavailability Formula" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+
+
+
+        <DataTemplate DataType="{x:Type viewmodels_ode:AssuranceLevelVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Assurance Level" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_ode:EventMonitorVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Assurance Level" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_ode:EventVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Assurance Level" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_ode:FailureModelVM}" ItemsSource="{Binding InterfaceFailures}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Failure Model" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_ode:FailureVM}" ItemsSource="{Binding Events}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Failure" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_ode:HazardVM}" ItemsSource="{Binding Failures}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Hazard" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_ode:ModelVM}" ItemsSource="{Binding Items}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Model" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_ode:PortVM}" ItemsSource="{Binding InterfaceFailures}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Port" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_ode:SignalVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Signal" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_ode:SystemVM}" ItemsSource="{Binding Items}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="System" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_ode:StateMachineVM}" ItemsSource="{Binding Items}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="State Machine" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_ode:StateVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="State" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_ode:TransitionVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Transition" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_dym:ModelVM}" ItemsSource="{Binding StateMachines}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Model" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type viewmodels_dym:StateMachineVM}" ItemsSource="{Binding Items}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="State Machine" VerticalAlignment="Center"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_dym:StateVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="State" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels_dym:TransitionVM}">
+            <StackPanel>
+                <TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+                <TextBlock FontStyle="Italic" Text="Transition" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="161*"/>
+                    <ColumnDefinition Width="235*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="260"/>
+                    <RowDefinition Height="70*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0" Margin="10,10,10,10" MinHeight="200" Grid.ColumnSpan="2">
+                    <StackPanel Grid.Row="0" VerticalAlignment="Stretch"  >
+                        <Label Content="File to import" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Margin="10,10,10,0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="filename" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,10"/>
+                            <Button x:Name="openFile" Grid.Column="1" Content="Open" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,10" Click="Click_SelectModelFile"/>
+                        </Grid>
+                        <Label Content="Results file (if HiP-HOPS)" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="resultsFilename" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,10"/>
+                            <Button x:Name="openResultsFile" Grid.Column="1" Content="Open" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,10" Click="Click_SelectResultsFile"/>
+                        </Grid>
+                        <Label Content="Detected type" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80*"/>
+                                <ColumnDefinition Width="20*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="detectedType" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,0" IsReadOnly="True">
+                            </TextBox>
+                            <Button x:Name="convertModel" Grid.Column="1" Content="Convert" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,10,10,10" Click="Click_ConvertModel"/>
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+                <TreeView x:Name="modelHierarchy" Grid.Row="1" Margin="10,10,10,10" SelectedItemChanged="modelHierarchy_SelectedItemChanged" Grid.ColumnSpan="2">
+                    <TreeView.Resources>
+
+                    </TreeView.Resources>
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                </TreeView>
+            </Grid>
+
+            <wpftoolkit:PropertyGrid x:Name="importedPropertyGrid" Grid.Column="1" AutoGenerateProperties="true" Margin="10,10,10,10" />
+        </Grid>
+        <StatusBar x:Name="statusBar" Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock x:Name="statusBarText" Text="{Binding SelectedItem, ElementName=modelHierarchy, Mode=OneWay}"/>
+        </StatusBar>
+    </Grid>
+</Window>

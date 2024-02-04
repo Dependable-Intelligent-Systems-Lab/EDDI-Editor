@@ -1,0 +1,708 @@
+<?xml version="1.0"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SystemElements>
+    <System Id="3" name="Default" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+      <keyValueMaps />
+      <signals>
+        <Signal Id="0">
+          <keyValueMaps />
+        </Signal>
+        <Signal Id="0">
+          <keyValueMaps />
+        </Signal>
+        <Signal Id="0">
+          <keyValueMaps />
+        </Signal>
+      </signals>
+      <ports />
+      <subSystems>
+        <System Id="4" name="Primary" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="5" name="SensorIn" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="6" name="DataOut" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="8" name="Omission-Default::Primary.DataOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>Omission-SensorIn OR calculationFailure</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="7" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="8" name="Omission-Default::Primary.DataOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>Omission-SensorIn OR calculationFailure</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+                <Failure Id="9" name="Default::Primary.calculationFailure" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="10" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="11" name="Failure Rate" value="0.0002">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="12" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+        <System Id="13" name="SensorInput" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="14" name="SensorOut" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="16" name="Omission-Default::SensorInput.SensorOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>sensorFailure</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="15" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="16" name="Omission-Default::SensorInput.SensorOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>sensorFailure</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+                <Failure Id="17" name="Default::SensorInput.sensorFailure" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="18" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="19" name="Failure Rate" value="0.0005">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="20" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+        <System Id="21" name="Standby" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="22" name="SensorIn" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="23" name="Monitor" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="24" name="DataOut" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="26" name="Omission-Default::Standby.DataOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>(calculationFailure OR Omission-SensorIn) AND Omission-Monitor</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="25" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="26" name="Omission-Default::Standby.DataOut" originType="Output" failureClass="Omission" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>(calculationFailure OR Omission-SensorIn) AND Omission-Monitor</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+                <Failure Id="27" name="Default::Standby.calculationFailure" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="28" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="29" name="Failure Rate" value="0.0002">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="30" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+      </subSystems>
+      <failureModels>
+        <FaultTree Id="31" name="CalculationFailure">
+          <keyValueMaps />
+          <MinimalCutSets>
+            <MinimalCutSets Id="0">
+              <keyValueMaps />
+              <CutSets>
+                <MinimalCutSet Id="0">
+                  <keyValueMaps />
+                  <Sequences />
+                  <Causes>
+                    <CutSetEvent Id="0" isNegated="false">
+                      <keyValueMaps />
+                      <Failure Id="17" name="Default::SensorInput.sensorFailure" originType="Internal" unavailability="0">
+                        <keyValueMaps />
+                        <FailureProbDistribution Id="18" name="Constant" type="Constant">
+                          <keyValueMaps />
+                          <Parameters>
+                            <ProbDistParam Id="19" name="Failure Rate" value="0.0005">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                            <ProbDistParam Id="20" name="Repair Rate" value="0">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                          </Parameters>
+                        </FailureProbDistribution>
+                        <Events />
+                      </Failure>
+                    </CutSetEvent>
+                  </Causes>
+                </MinimalCutSet>
+                <MinimalCutSet Id="0">
+                  <keyValueMaps />
+                  <Sequences />
+                  <Causes>
+                    <CutSetEvent Id="0" isNegated="false">
+                      <keyValueMaps />
+                      <Failure Id="9" name="Default::Primary.calculationFailure" originType="Internal" unavailability="0">
+                        <keyValueMaps />
+                        <FailureProbDistribution Id="10" name="Constant" type="Constant">
+                          <keyValueMaps />
+                          <Parameters>
+                            <ProbDistParam Id="11" name="Failure Rate" value="0.0002">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                            <ProbDistParam Id="12" name="Repair Rate" value="0">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                          </Parameters>
+                        </FailureProbDistribution>
+                        <Events />
+                      </Failure>
+                    </CutSetEvent>
+                    <CutSetEvent Id="0" isNegated="false">
+                      <keyValueMaps />
+                      <Failure Id="27" name="Default::Standby.calculationFailure" originType="Internal" unavailability="0">
+                        <keyValueMaps />
+                        <FailureProbDistribution Id="28" name="Constant" type="Constant">
+                          <keyValueMaps />
+                          <Parameters>
+                            <ProbDistParam Id="29" name="Failure Rate" value="0.0002">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                            <ProbDistParam Id="30" name="Repair Rate" value="0">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                          </Parameters>
+                        </FailureProbDistribution>
+                        <Events />
+                      </Failure>
+                    </CutSetEvent>
+                  </Causes>
+                </MinimalCutSet>
+              </CutSets>
+              <Failure Id="43" name="CalculationFailure" originType="Input" unavailability="0.0491435">
+                <keyValueMaps />
+                <Events />
+              </Failure>
+            </MinimalCutSets>
+          </MinimalCutSets>
+          <Failures />
+          <SubModels />
+          <Gate Id="32" name="CalculationFailure" gateType="OR">
+            <keyValueMaps />
+            <CauseType>Gate</CauseType>
+            <Failure Id="43" name="CalculationFailure" originType="Input" unavailability="0.0491435">
+              <keyValueMaps />
+              <Events />
+            </Failure>
+            <Actions />
+            <Evidence />
+            <Causes>
+              <Gate Id="33" name="AND" gateType="AND">
+                <keyValueMaps />
+                <CauseType>Gate</CauseType>
+                <Actions />
+                <Evidence />
+                <Causes>
+                  <Gate Id="34" name="Omission-Primary.DataOut" gateType="OR">
+                    <keyValueMaps />
+                    <CauseType>Gate</CauseType>
+                    <Actions />
+                    <Evidence />
+                    <Causes>
+                      <Cause Id="35" name="Default::Primary.calculationFailure">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="9" name="Default::Primary.calculationFailure" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="10" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="11" name="Failure Rate" value="0.0002">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="12" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions />
+                        <Evidence />
+                      </Cause>
+                      <Cause Id="36" name="Default::SensorInput.sensorFailure">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="17" name="Default::SensorInput.sensorFailure" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="18" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="19" name="Failure Rate" value="0.0005">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="20" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions />
+                        <Evidence />
+                      </Cause>
+                    </Causes>
+                  </Gate>
+                  <Gate Id="37" name="OR [Omission-Standby.DataOut]" gateType="OR">
+                    <keyValueMaps />
+                    <CauseType>Gate</CauseType>
+                    <Actions />
+                    <Evidence />
+                    <Causes>
+                      <Cause Id="38" name="Default::Standby.calculationFailure">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="27" name="Default::Standby.calculationFailure" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="28" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="29" name="Failure Rate" value="0.0002">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="30" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions />
+                        <Evidence />
+                      </Cause>
+                      <Cause Id="39" name="Default::SensorInput.sensorFailure">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="17" name="Default::SensorInput.sensorFailure" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="18" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="19" name="Failure Rate" value="0.0005">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="20" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions />
+                        <Evidence />
+                      </Cause>
+                    </Causes>
+                  </Gate>
+                  <Gate Id="40" name="OR [Omission-Primary.DataOut]" gateType="OR">
+                    <keyValueMaps />
+                    <CauseType>Gate</CauseType>
+                    <Actions />
+                    <Evidence />
+                    <Causes>
+                      <Cause Id="41" name="Default::Primary.calculationFailure">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="9" name="Default::Primary.calculationFailure" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="10" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="11" name="Failure Rate" value="0.0002">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="12" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions />
+                        <Evidence />
+                      </Cause>
+                      <Cause Id="42" name="Default::SensorInput.sensorFailure">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="17" name="Default::SensorInput.sensorFailure" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="18" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="19" name="Failure Rate" value="0.0005">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="20" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions />
+                        <Evidence />
+                      </Cause>
+                    </Causes>
+                  </Gate>
+                </Causes>
+              </Gate>
+            </Causes>
+          </Gate>
+        </FaultTree>
+        <FMEA Id="44" name="System FMEA" type="FMEA">
+          <keyValueMaps />
+          <MinimalCutSets />
+          <Failures />
+          <SubModels />
+          <Entries>
+            <FMEAEntry Id="0" name="Primary">
+              <keyValueMaps />
+              <Effect Id="43" name="CalculationFailure" originType="Input" unavailability="0.0491435">
+                <keyValueMaps />
+                <Events />
+              </Effect>
+            </FMEAEntry>
+            <FMEAEntry Id="0" name="SensorInput">
+              <keyValueMaps />
+              <Effect Id="43" name="CalculationFailure" originType="Input" unavailability="0.0491435">
+                <keyValueMaps />
+                <Events />
+              </Effect>
+            </FMEAEntry>
+            <FMEAEntry Id="0" name="Standby">
+              <keyValueMaps />
+              <Effect Id="43" name="CalculationFailure" originType="Input" unavailability="0.0491435">
+                <keyValueMaps />
+                <Events />
+              </Effect>
+            </FMEAEntry>
+          </Entries>
+        </FMEA>
+        <StateMachine Id="2" name="PrimaryStandby">
+          <keyValueMaps />
+          <MinimalCutSets />
+          <Failures />
+          <SubModels />
+          <States>
+            <State Id="3" name="Using Primary" isInitialState="true" isFailState="false">
+              <keyValueMaps />
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+            <State Id="4" name="Using Standby" isInitialState="false" isFailState="false">
+              <keyValueMaps />
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+            <State Id="5" name="Failed" isInitialState="false" isFailState="true">
+              <keyValueMaps />
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+          </States>
+          <Transitions>
+            <Transition Id="6" name="Primary Fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="3" name="Using Primary" isInitialState="true" isFailState="false">
+                <keyValueMaps />
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="4" name="Using Standby" isInitialState="false" isFailState="false">
+                <keyValueMaps />
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers />
+            </Transition>
+            <Transition Id="7" name="Standby Fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="4" name="Using Standby" isInitialState="false" isFailState="false">
+                <keyValueMaps />
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="5" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps />
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers />
+            </Transition>
+            <Transition Id="8" name="Input Failure" transition="0">
+              <keyValueMaps />
+              <fromState Id="3" name="Using Primary" isInitialState="true" isFailState="false">
+                <keyValueMaps />
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="5" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps />
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers />
+            </Transition>
+          </Transitions>
+        </StateMachine>
+      </failureModels>
+      <eventMonitors />
+    </System>
+  </SystemElements>
+  <Hazards>
+    <Hazard Id="1" name="CalculationFailure" condition="No calculation output from the system. This could have varying effects depending on the nature of the system, e.g. if this was a distance sensor in a vehicle, omission could lead to a crash.">
+      <keyValueMaps />
+      <Failures>
+        <Failure Id="2" name="Omission-Primary.DataOut AND Omission-Standby.DataOut" originType="Input" unavailability="0">
+          <keyValueMaps />
+          <Events />
+        </Failure>
+      </Failures>
+    </Hazard>
+  </Hazards>
+</Model>
