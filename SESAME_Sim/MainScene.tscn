@@ -1,0 +1,307 @@
+[gd_scene load_steps=29 format=3 uid="uid://cnplpvtwko0sx"]
+
+[ext_resource type="Script" path="res://scripts/MapViewport.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://b4x11crll5qyr" path="res://textures/uohmap.png" id="2_i8ayl"]
+[ext_resource type="Texture2D" uid="uid://b7sqx2b2nic20" path="res://textures/helipad.png" id="3_duybx"]
+[ext_resource type="Script" path="res://scripts/FaultTreeViewport.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/StateMachineViewport.gd" id="4_lnjne"]
+[ext_resource type="Texture2D" uid="uid://bom5il5pi4mf6" path="res://textures/explosion.png" id="5_jl7m3"]
+[ext_resource type="Script" path="res://scripts/Explosion.gd" id="5_lx1am"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joja4"]
+bg_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gdbh"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckmkh"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mjg0"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr1ck"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq6fu"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr8px"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suoud"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ui1x"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhnqb"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6mnv"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m41ey"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxii6"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obvs1"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw2lj"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyg37"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj8i8"]
+atlas = ExtResource("5_jl7m3")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q225t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gdbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckmkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mjg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr1ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq6fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr8px")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suoud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ui1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhnqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6mnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m41ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxii6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obvs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw2lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyg37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj8i8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m214x"]
+bg_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8ay1"]
+bg_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei2wf"]
+bg_color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuadGridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MapPanel" type="Panel" parent="QuadGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadGridContainer/MapPanel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="QuadGridContainer/MapPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_joja4")
+text = "MAP"
+horizontal_alignment = 1
+
+[node name="MapViewportContainer" type="SubViewportContainer" parent="QuadGridContainer/MapPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("2")
+
+[node name="MapViewport" type="SubViewport" parent="QuadGridContainer/MapPanel/VBoxContainer/MapViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(948, 471)
+render_target_update_mode = 4
+
+[node name="MapCamera2D" type="Camera2D" parent="QuadGridContainer/MapPanel/VBoxContainer/MapViewportContainer/MapViewport"]
+zoom = Vector2(0.8, 0.8)
+
+[node name="MapBackground" type="Sprite2D" parent="QuadGridContainer/MapPanel/VBoxContainer/MapViewportContainer/MapViewport"]
+modulate = Color(1, 1, 1, 0.478431)
+texture = ExtResource("2_i8ayl")
+
+[node name="HomeBase" type="Sprite2D" parent="QuadGridContainer/MapPanel/VBoxContainer/MapViewportContainer/MapViewport"]
+position = Vector2(50, -250)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_duybx")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="QuadGridContainer/MapPanel/VBoxContainer/MapViewportContainer/MapViewport"]
+visible = false
+position = Vector2(50, 50)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_q225t")
+frame = 1
+script = ExtResource("5_lx1am")
+
+[node name="StateMachinePanel" type="Panel" parent="QuadGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadGridContainer/StateMachinePanel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="QuadGridContainer/StateMachinePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_m214x")
+text = "STATE MACHINE VIEW"
+horizontal_alignment = 1
+
+[node name="StateMachineViewportContainer" type="SubViewportContainer" parent="QuadGridContainer/StateMachinePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("4_lnjne")
+
+[node name="StateMachineViewport" type="SubViewport" parent="QuadGridContainer/StateMachinePanel/VBoxContainer/StateMachineViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(948, 471)
+render_target_update_mode = 4
+
+[node name="StateMachineCamera2D" type="Camera2D" parent="QuadGridContainer/StateMachinePanel/VBoxContainer/StateMachineViewportContainer/StateMachineViewport"]
+
+[node name="LogPanel" type="Panel" parent="QuadGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadGridContainer/LogPanel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="QuadGridContainer/LogPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8ay1")
+text = "LOG OUTPUT"
+horizontal_alignment = 1
+
+[node name="LogScrollContainer" type="ScrollContainer" parent="QuadGridContainer/LogPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LogRichTextLabel" type="RichTextLabel" parent="QuadGridContainer/LogPanel/VBoxContainer/LogScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[color=green]Initialised OK[/color]
+"
+scroll_following = true
+
+[node name="FaultTreePanel" type="Panel" parent="QuadGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadGridContainer/FaultTreePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="QuadGridContainer/FaultTreePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ei2wf")
+text = "FAULT TREE VIEW"
+horizontal_alignment = 1
+
+[node name="FaultTreeViewportContainer" type="SubViewportContainer" parent="QuadGridContainer/FaultTreePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("4")
+
+[node name="FaultTreeViewport" type="SubViewport" parent="QuadGridContainer/FaultTreePanel/VBoxContainer/FaultTreeViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(948, 471)
+render_target_update_mode = 4
+
+[node name="FauitTreeCamera2D" type="Camera2D" parent="QuadGridContainer/FaultTreePanel/VBoxContainer/FaultTreeViewportContainer/FaultTreeViewport"]
+
+[connection signal="resized" from="." to="QuadGridContainer/MapPanel/VBoxContainer/MapViewportContainer" method="_on_control_resized"]

@@ -1,0 +1,2381 @@
+<?xml version="1.0"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SystemElements>
+    <System Id="13" name="JSON State Machine" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+      <keyValueMaps />
+      <signals />
+      <ports />
+      <subSystems />
+      <failureModels>
+        <StateMachine Id="0" name="3 drone MRS">
+          <keyValueMaps />
+          <MinimalCutSets />
+          <Failures />
+          <SubModels />
+          <States>
+            <State Id="0" name="All 3 OK" isInitialState="true" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>-400</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-100</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.25</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+            <State Id="0" name="1 + 2 OK" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>0</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-300</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 3">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="0" name="1 + 3 OK" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>0</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-100</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 2">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="0" name="2 + 3 OK" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>0</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>100</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="function" function="Drone 2=takeover route for: Drone 3">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="0" name="1 OK" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>400</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-300</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.5</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.5</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="0" name="2 OK" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>400</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-100</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.5</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.5</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="0" name="3 OK" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>400</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>100</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.5</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.5</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="0" name="Failed" isInitialState="false" isFailState="true">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>800</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-100</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+                <item>
+                  <key>
+                    <string>Colour</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>r</string>
+                        </key>
+                        <value>
+                          <string>0.75</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>g</string>
+                        </key>
+                        <value>
+                          <string>0.25</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>b</string>
+                        </key>
+                        <value>
+                          <string>0.25</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+          </States>
+          <Transitions>
+            <Transition Id="0" name="1 fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="All 3 OK" isInitialState="true" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>-400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="2 + 3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route for: Drone 1">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="1" name="Condition=Drone 1: failed" isPersistent="false" condition="Drone 1: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="2 fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="All 3 OK" isInitialState="true" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>-400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="1 + 3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 2">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="2" name="Condition=Drone 2: failed" isPersistent="false" condition="Drone 2: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="3 fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="All 3 OK" isInitialState="true" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>-400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="1 + 2 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-300</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 3">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="3" name="Condition=Drone 3: failed" isPersistent="false" condition="Drone 3: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="1 fails next" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="1 + 2 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-300</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 3">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="2 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="4" name="Condition=Drone 1: failed" isPersistent="false" condition="Drone 1: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="1 fails next" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="1 + 3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 2">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="5" name="Condition=Drone 1: failed" isPersistent="false" condition="Drone 1: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="2 fails next" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="1 + 2 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-300</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 3">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="1 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-300</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="6" name="Condition=Drone 2: failed" isPersistent="false" condition="Drone 2: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="2 fails next" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="2 + 3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route for: Drone 3">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="7" name="Condition=Drone 2: failed" isPersistent="false" condition="Drone 2: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="3 fails next" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="1 + 3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 1=takeover route for: Drone 2">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="1 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-300</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="8" name="Condition=Drone 3: failed" isPersistent="false" condition="Drone 3: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="3 fails next" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="2 + 3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>0</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route for: Drone 3">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="2 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="9" name="Condition=Drone 3: failed" isPersistent="false" condition="Drone 3: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="1 fails last" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="1 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-300</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>800</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="10" name="Condition=Drone 1: failed" isPersistent="false" condition="Drone 1: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="2 fails last" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="2 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>800</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="11" name="Condition=Drone 2: failed" isPersistent="false" condition="Drone 2: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="0" name="3 fails last" transition="0">
+              <keyValueMaps />
+              <fromState Id="0" name="3 OK" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>400</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.5</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="function" function="Drone 2=takeover route">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="0" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>800</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-100</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                  <item>
+                    <key>
+                      <string>Colour</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>r</string>
+                          </key>
+                          <value>
+                            <string>0.75</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>g</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>b</string>
+                          </key>
+                          <value>
+                            <string>0.25</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="12" name="Condition=Drone 3: failed" isPersistent="false" condition="Drone 3: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+          </Transitions>
+        </StateMachine>
+      </failureModels>
+      <eventMonitors />
+    </System>
+  </SystemElements>
+  <Hazards />
+</Model>

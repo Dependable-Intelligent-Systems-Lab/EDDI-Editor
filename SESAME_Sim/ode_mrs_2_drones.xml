@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SystemElements>
+    <System Id="1" name="Unnamed system" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+      <keyValueMaps />
+      <signals />
+      <ports />
+      <subSystems />
+      <failureModels>
+        <StateMachine Id="2" name="MRS_state_machine">
+          <keyValueMaps />
+          <MinimalCutSets />
+          <Failures />
+          <SubModels />
+          <States>
+            <State Id="3" name="2 Drones OK" isInitialState="true" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>-202</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-87</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+            <State Id="4" name="Drone 1 failed" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>69</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-250.0027</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="Drone 2=takeover route for: Drone 1" description="" function="Drone 2=takeover route for: Drone 1">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="5" name="Failed" isInitialState="false" isFailState="true">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>355</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-85.00266</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+            <State Id="6" name="Drone 2 failed" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>71</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>91.99738</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="Drone 1=takeover route for: Drone 2" description="" function="Drone 1=takeover route for: Drone 2">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+          </States>
+          <Transitions>
+            <Transition Id="7" name="Drone 1 fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="3" name="2 Drones OK" isInitialState="true" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>-202</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-87</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="4" name="Drone 1 failed" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>69</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-250.0027</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="Drone 2=takeover route for: Drone 1" description="" function="Drone 2=takeover route for: Drone 1">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="8" name="Condition=Drone 1: failed" isPersistent="false" condition="Drone 1: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="9" name="Drone 2 fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="4" name="Drone 1 failed" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>69</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-250.0027</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="Drone 2=takeover route for: Drone 1" description="" function="Drone 2=takeover route for: Drone 1">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="5" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>355</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-85.00266</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="10" name="Condition=Drone 2: failed" isPersistent="false" condition="Drone 2: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="11" name="Drone 1 fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="6" name="Drone 2 failed" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>71</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>91.99738</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="Drone 1=takeover route for: Drone 2" description="" function="Drone 1=takeover route for: Drone 2">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="5" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>355</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-85.00266</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="12" name="Condition=Drone 1: failed" isPersistent="false" condition="Drone 1: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="13" name="Drone 2 fails" transition="0">
+              <keyValueMaps />
+              <fromState Id="3" name="2 Drones OK" isInitialState="true" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>-202</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-87</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="6" name="Drone 2 failed" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>71</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>91.99738</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="Drone 1=takeover route for: Drone 2" description="" function="Drone 1=takeover route for: Drone 2">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="14" name="Condition=Drone 2: failed" isPersistent="false" condition="Drone 2: failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+          </Transitions>
+        </StateMachine>
+      </failureModels>
+      <eventMonitors />
+    </System>
+  </SystemElements>
+  <Hazards />
+</Model>

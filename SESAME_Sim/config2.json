@@ -1,0 +1,21 @@
+{
+	"map": "uohmap.png",
+	"statemachine": "ode_mrs_2_drones.xml",
+	"homebase": [50, -250],
+	"robots": [
+		{
+			"type": "drone",
+			"name": "Drone 1",
+			"colour": [0.25, 0.5, 1.00],
+			"position": [100, 100],
+			"model": "ode_simple_drone_3.xml"
+		},
+		{
+			"type": "drone",
+			"name": "Drone 2",
+			"colour": [1.00, 0.25, 0.75],
+			"position": [-100, -100],
+			"model": "ode_simple_drone_3.xml"
+		}
+	]
+}

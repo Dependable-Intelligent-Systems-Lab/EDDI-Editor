@@ -1,3 +1,5 @@
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+
 # EDDI EDITOR
 The EDDI Editor is a small tool intended to act as glue between different safety analysis tools and runtime EDDI generators. It can:
 * Import HiP-HOPS models (both system architectures and analysis results, i.e., FMEA/FTA) and convert them to ODE models

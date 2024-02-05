@@ -1,0 +1,1064 @@
+<?xml version="1.0"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SystemElements>
+    <System Id="3" name="Default" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+      <keyValueMaps />
+      <signals>
+        <Signal Id="0">
+          <keyValueMaps />
+        </Signal>
+        <Signal Id="0">
+          <keyValueMaps />
+        </Signal>
+        <Signal Id="0">
+          <keyValueMaps />
+        </Signal>
+      </signals>
+      <ports />
+      <subSystems>
+        <System Id="4" name="Comms" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="5" name="In1" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="6" name="Out1" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="8" name="O-Default::Comms.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string> failed</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="7" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="8" name="O-Default::Comms.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string> failed</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+                <Failure Id="9" name="Default::Comms.failed" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="10" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="11" name="Failure Rate" value="0.001">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="12" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+        <System Id="13" name="Controller" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="14" name="In1" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="15" name="In2" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="16" name="In3" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="17" name="Out1" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="19" name="O-Default::Controller.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>O-In1 OR (O-In2 AND O-In3)</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="18" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="19" name="O-Default::Controller.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string>O-In1 OR (O-In2 AND O-In3)</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+        <System Id="20" name="Motor" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="21" name="In1" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="22" name="Out1" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="24" name="O-Default::Motor.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string> failed</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="23" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="24" name="O-Default::Motor.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string> failed</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+                <Failure Id="25" name="Default::Motor.failed" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="26" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="27" name="Failure Rate" value="1E-05">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="28" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+        <System Id="29" name="Nav" overallLifetime="0" overallLifetimeTimeUnit="Millisecond">
+          <keyValueMaps>
+            <item>
+              <key>
+                <string>HBlockType</string>
+              </key>
+              <value>
+                <dictionary>
+                  <item>
+                    <key>
+                      <string>value</string>
+                    </key>
+                    <value>
+                      <string>Both</string>
+                    </value>
+                  </item>
+                </dictionary>
+              </value>
+            </item>
+          </keyValueMaps>
+          <signals />
+          <ports>
+            <Port Id="30" name="In1" direction="IN">
+              <keyValueMaps />
+              <InterfaceFailures />
+              <RefinedPorts />
+            </Port>
+            <Port Id="31" name="Out1" direction="OUT">
+              <keyValueMaps />
+              <InterfaceFailures>
+                <Failure Id="33" name="O-Default::Nav.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string> failed</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+              </InterfaceFailures>
+              <RefinedPorts />
+            </Port>
+          </ports>
+          <subSystems />
+          <failureModels>
+            <FailureModel Id="32" name="Component Failure Data">
+              <keyValueMaps />
+              <MinimalCutSets />
+              <Failures>
+                <Failure Id="33" name="O-Default::Nav.Out1" originType="Output" failureClass="O" unavailability="0">
+                  <keyValueMaps>
+                    <item>
+                      <key>
+                        <string>FailureLogic</string>
+                      </key>
+                      <value>
+                        <dictionary>
+                          <item>
+                            <key>
+                              <string>value</string>
+                            </key>
+                            <value>
+                              <string> failed</string>
+                            </value>
+                          </item>
+                        </dictionary>
+                      </value>
+                    </item>
+                  </keyValueMaps>
+                  <Events />
+                </Failure>
+                <Failure Id="34" name="Default::Nav.failed" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="35" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="36" name="Failure Rate" value="0.0001">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="37" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+              </Failures>
+              <SubModels />
+            </FailureModel>
+          </failureModels>
+          <eventMonitors />
+        </System>
+      </subSystems>
+      <failureModels>
+        <FaultTree Id="38" name="Drone_failed">
+          <keyValueMaps />
+          <MinimalCutSets>
+            <MinimalCutSets Id="0">
+              <keyValueMaps />
+              <CutSets>
+                <MinimalCutSet Id="0">
+                  <keyValueMaps />
+                  <Sequences />
+                  <Causes>
+                    <CutSetEvent Id="0" isNegated="false">
+                      <keyValueMaps />
+                      <Failure Id="25" name="Default::Motor.failed" originType="Internal" unavailability="0">
+                        <keyValueMaps />
+                        <FailureProbDistribution Id="26" name="Constant" type="Constant">
+                          <keyValueMaps />
+                          <Parameters>
+                            <ProbDistParam Id="27" name="Failure Rate" value="1E-05">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                            <ProbDistParam Id="28" name="Repair Rate" value="0">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                          </Parameters>
+                        </FailureProbDistribution>
+                        <Events />
+                      </Failure>
+                    </CutSetEvent>
+                  </Causes>
+                </MinimalCutSet>
+                <MinimalCutSet Id="0">
+                  <keyValueMaps />
+                  <Sequences />
+                  <Causes>
+                    <CutSetEvent Id="0" isNegated="false">
+                      <keyValueMaps />
+                      <Failure Id="9" name="Default::Comms.failed" originType="Internal" unavailability="0">
+                        <keyValueMaps />
+                        <FailureProbDistribution Id="10" name="Constant" type="Constant">
+                          <keyValueMaps />
+                          <Parameters>
+                            <ProbDistParam Id="11" name="Failure Rate" value="0.001">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                            <ProbDistParam Id="12" name="Repair Rate" value="0">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                          </Parameters>
+                        </FailureProbDistribution>
+                        <Events />
+                      </Failure>
+                    </CutSetEvent>
+                    <CutSetEvent Id="0" isNegated="false">
+                      <keyValueMaps />
+                      <Failure Id="34" name="Default::Nav.failed" originType="Internal" unavailability="0">
+                        <keyValueMaps />
+                        <FailureProbDistribution Id="35" name="Constant" type="Constant">
+                          <keyValueMaps />
+                          <Parameters>
+                            <ProbDistParam Id="36" name="Failure Rate" value="0.0001">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                            <ProbDistParam Id="37" name="Repair Rate" value="0">
+                              <keyValueMaps />
+                            </ProbDistParam>
+                          </Parameters>
+                        </FailureProbDistribution>
+                        <Events />
+                      </Failure>
+                    </CutSetEvent>
+                  </Causes>
+                </MinimalCutSet>
+              </CutSets>
+              <Failure Id="46" name="Drone_failed" originType="Input" unavailability="0.667103">
+                <keyValueMaps />
+                <Events />
+              </Failure>
+            </MinimalCutSets>
+          </MinimalCutSets>
+          <Failures />
+          <SubModels />
+          <Gate Id="39" name="Drone_failed" gateType="OR">
+            <keyValueMaps />
+            <CauseType>Gate</CauseType>
+            <Failure Id="46" name="Drone_failed" originType="Input" unavailability="0.667103">
+              <keyValueMaps />
+              <Events />
+            </Failure>
+            <Actions>
+              <WarningAction Id="0" name="Drone_failed" description="" priorityLevel="0" warning="Drone_failed" warningType="event">
+                <keyValueMaps />
+                <Prerequisites />
+                <SubActions />
+                <TriggeringEvents />
+                <failures />
+              </WarningAction>
+            </Actions>
+            <Evidence />
+            <Causes>
+              <Gate Id="40" name="AND [O-Controller.Out1]" gateType="AND">
+                <keyValueMaps />
+                <CauseType>Gate</CauseType>
+                <Actions />
+                <Evidence />
+                <Causes>
+                  <Gate Id="41" name="OR [O-Comms.Out1]" gateType="OR">
+                    <keyValueMaps />
+                    <CauseType>Gate</CauseType>
+                    <Actions />
+                    <Evidence />
+                    <Causes>
+                      <Cause Id="42" name="Default::Comms.failed">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="9" name="Default::Comms.failed" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="10" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="11" name="Failure Rate" value="0.001">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="12" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions>
+                          <WarningAction Id="0" name="Default::Comms.failed" description="" priorityLevel="0" warning="Default::Comms.failed" warningType="event">
+                            <keyValueMaps />
+                            <Prerequisites />
+                            <SubActions />
+                            <TriggeringEvents />
+                            <failures />
+                          </WarningAction>
+                        </Actions>
+                        <Evidence />
+                      </Cause>
+                    </Causes>
+                  </Gate>
+                  <Gate Id="43" name="OR [O-Nav.Out1]" gateType="OR">
+                    <keyValueMaps />
+                    <CauseType>Gate</CauseType>
+                    <Actions />
+                    <Evidence />
+                    <Causes>
+                      <Cause Id="44" name="Default::Nav.failed">
+                        <keyValueMaps />
+                        <CauseType>BasicEvent</CauseType>
+                        <Failure Id="34" name="Default::Nav.failed" originType="Internal" unavailability="0">
+                          <keyValueMaps />
+                          <FailureProbDistribution Id="35" name="Constant" type="Constant">
+                            <keyValueMaps />
+                            <Parameters>
+                              <ProbDistParam Id="36" name="Failure Rate" value="0.0001">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                              <ProbDistParam Id="37" name="Repair Rate" value="0">
+                                <keyValueMaps />
+                              </ProbDistParam>
+                            </Parameters>
+                          </FailureProbDistribution>
+                          <Events />
+                        </Failure>
+                        <Actions>
+                          <WarningAction Id="0" name="Default::Nav.failed" description="" priorityLevel="0" warning="Default::Nav.failed" warningType="event">
+                            <keyValueMaps />
+                            <Prerequisites />
+                            <SubActions />
+                            <TriggeringEvents />
+                            <failures />
+                          </WarningAction>
+                        </Actions>
+                        <Evidence />
+                      </Cause>
+                    </Causes>
+                  </Gate>
+                </Causes>
+              </Gate>
+              <Cause Id="45" name="Default::Motor.failed">
+                <keyValueMaps />
+                <CauseType>BasicEvent</CauseType>
+                <Failure Id="25" name="Default::Motor.failed" originType="Internal" unavailability="0">
+                  <keyValueMaps />
+                  <FailureProbDistribution Id="26" name="Constant" type="Constant">
+                    <keyValueMaps />
+                    <Parameters>
+                      <ProbDistParam Id="27" name="Failure Rate" value="1E-05">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                      <ProbDistParam Id="28" name="Repair Rate" value="0">
+                        <keyValueMaps />
+                      </ProbDistParam>
+                    </Parameters>
+                  </FailureProbDistribution>
+                  <Events />
+                </Failure>
+                <Actions>
+                  <WarningAction Id="0" name="Default::Motor.failed" description="" priorityLevel="0" warning="Default::Motor.failed" warningType="event">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                    <failures />
+                  </WarningAction>
+                </Actions>
+                <Evidence />
+              </Cause>
+            </Causes>
+          </Gate>
+        </FaultTree>
+        <FMEA Id="47" name="System FMEA" type="FMEA">
+          <keyValueMaps />
+          <MinimalCutSets />
+          <Failures />
+          <SubModels />
+          <Entries>
+            <FMEAEntry Id="0" name="Comms">
+              <keyValueMaps />
+              <Effect Id="46" name="Drone_failed" originType="Input" unavailability="0.667103">
+                <keyValueMaps />
+                <Events />
+              </Effect>
+            </FMEAEntry>
+            <FMEAEntry Id="0" name="Motor">
+              <keyValueMaps />
+              <Effect Id="46" name="Drone_failed" originType="Input" unavailability="0.667103">
+                <keyValueMaps />
+                <Events />
+              </Effect>
+            </FMEAEntry>
+            <FMEAEntry Id="0" name="Nav">
+              <keyValueMaps />
+              <Effect Id="46" name="Drone_failed" originType="Input" unavailability="0.667103">
+                <keyValueMaps />
+                <Events />
+              </Effect>
+            </FMEAEntry>
+          </Entries>
+        </FMEA>
+        <StateMachine Id="2" name="Drone_SM">
+          <keyValueMaps />
+          <MinimalCutSets />
+          <Failures />
+          <SubModels />
+          <States>
+            <State Id="3" name="Operational" isInitialState="true" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>-279</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-86</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry />
+              <OnExit />
+            </State>
+            <State Id="4" name="Failed" isInitialState="false" isFailState="true">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>343</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>-87.00266</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="explode" description="" function="explode">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+            <State Id="5" name="Degraded" isInitialState="false" isFailState="false">
+              <keyValueMaps>
+                <item>
+                  <key>
+                    <string>Position</string>
+                  </key>
+                  <value>
+                    <dictionary>
+                      <item>
+                        <key>
+                          <string>x</string>
+                        </key>
+                        <value>
+                          <string>35</string>
+                        </value>
+                      </item>
+                      <item>
+                        <key>
+                          <string>y</string>
+                        </key>
+                        <value>
+                          <string>140.9974</string>
+                        </value>
+                      </item>
+                    </dictionary>
+                  </value>
+                </item>
+              </keyValueMaps>
+              <Failures />
+              <OnEntry>
+                <FunctionAction Id="0" name="rtb" description="" function="rtb">
+                  <keyValueMaps />
+                  <Prerequisites />
+                  <SubActions />
+                  <TriggeringEvents />
+                </FunctionAction>
+              </OnEntry>
+              <OnExit />
+            </State>
+          </States>
+          <Transitions>
+            <Transition Id="6" name="Failed_directly" transition="0">
+              <keyValueMaps />
+              <fromState Id="3" name="Operational" isInitialState="true" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>-279</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-86</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="4" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>343</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-87.00266</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="explode" description="" function="explode">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="7" name="Condition=Drone_failed" isPersistent="false" condition="Drone_failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="8" name="Failed" transition="0">
+              <keyValueMaps />
+              <fromState Id="5" name="Degraded" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>35</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>140.9974</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="rtb" description="" function="rtb">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </fromState>
+              <toState Id="4" name="Failed" isInitialState="false" isFailState="true">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>343</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-87.00266</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="explode" description="" function="explode">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="9" name="Condition=Drone_failed" isPersistent="false" condition="Drone_failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+            <Transition Id="10" name="Degraded" transition="0">
+              <keyValueMaps />
+              <fromState Id="3" name="Operational" isInitialState="true" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>-279</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>-86</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry />
+                <OnExit />
+              </fromState>
+              <toState Id="5" name="Degraded" isInitialState="false" isFailState="false">
+                <keyValueMaps>
+                  <item>
+                    <key>
+                      <string>Position</string>
+                    </key>
+                    <value>
+                      <dictionary>
+                        <item>
+                          <key>
+                            <string>x</string>
+                          </key>
+                          <value>
+                            <string>35</string>
+                          </value>
+                        </item>
+                        <item>
+                          <key>
+                            <string>y</string>
+                          </key>
+                          <value>
+                            <string>140.9974</string>
+                          </value>
+                        </item>
+                      </dictionary>
+                    </value>
+                  </item>
+                </keyValueMaps>
+                <Failures />
+                <OnEntry>
+                  <FunctionAction Id="0" name="rtb" description="" function="rtb">
+                    <keyValueMaps />
+                    <Prerequisites />
+                    <SubActions />
+                    <TriggeringEvents />
+                  </FunctionAction>
+                </OnEntry>
+                <OnExit />
+              </toState>
+              <triggers>
+                <ConditionEvent Id="11" name="Condition=Default::Comms.failed" isPersistent="false" condition="Default::Comms.failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+                <ConditionEvent Id="12" name="Condition=Default::Nav.failed" isPersistent="false" condition="Default::Nav.failed">
+                  <keyValueMaps />
+                  <Monitors />
+                </ConditionEvent>
+              </triggers>
+            </Transition>
+          </Transitions>
+        </StateMachine>
+      </failureModels>
+      <eventMonitors />
+    </System>
+  </SystemElements>
+  <Hazards>
+    <Hazard Id="1" name="Drone_failed">
+      <keyValueMaps />
+      <Failures>
+        <Failure Id="2" name="O-Controller.Out1" originType="Input" unavailability="0">
+          <keyValueMaps />
+          <Events />
+        </Failure>
+      </Failures>
+    </Hazard>
+  </Hazards>
+</Model>
