@@ -52,7 +52,6 @@ func _gui_input(event):
 				
 				# Clicked on an FTNode?
 				var world_pos = camera.get_local_mouse_position()
-				get_node("FaultTreeViewport/Polygon2D").position = world_pos
 				var found = false
 				for node in get_tree().get_nodes_in_group("ftnodes"): # We add them programmatically on creation
 					if not node.visible: continue
